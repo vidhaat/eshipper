@@ -1,0 +1,23 @@
+{
+    "name": "TicketReason",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "ticketReason",
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125451",
+    "entityTableName": "ticket_reason",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

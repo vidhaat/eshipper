@@ -1,0 +1,23 @@
+{
+    "name": "ElasticsearchStatus",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "elasticShippingClaim",
+            "otherEntityRelationshipName": "elasticStatus",
+            "relationshipName": "elasticShippingClaim",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125505",
+    "entityTableName": "elasticsearch_status",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

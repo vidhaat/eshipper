@@ -1,0 +1,31 @@
+{
+    "name": "ContactPreference",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "contactPreference",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "contactPreference",
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125450",
+    "entityTableName": "contact_preference",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

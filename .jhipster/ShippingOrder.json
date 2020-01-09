@@ -1,0 +1,23 @@
+{
+    "name": "ShippingOrder",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "shippingOrder",
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125452",
+    "entityTableName": "shipping_order",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

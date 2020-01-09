@@ -1,0 +1,125 @@
+{
+    "name": "ShippingClaim",
+    "fields": [
+        {
+            "fieldName": "receivedDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "mailedDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "updatedDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "trackingNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subject",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notifyCustomer",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "missingDocuments",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "claimCarrierRefund",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimCarrierRefund",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "claimEshipperRefund",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimEshipperRefund",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingOrder",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "shippingOrder"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ticketReason",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "ticketReason"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimStatus",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimStatus"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimSolution",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimSolution"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimAssignee",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimAssignee"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimComment",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimComment"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "contactPreference",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "contactPreference"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "claimAttachment",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimAttachment",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "claimMissingDocument",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimMissingDocument",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125448",
+    "entityTableName": "shipping_claim",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

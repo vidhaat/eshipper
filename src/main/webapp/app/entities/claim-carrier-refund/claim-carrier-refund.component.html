@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eshipperApp.claimCarrierRefund.home.title">Claim Carrier Refunds</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-claim-carrier-refund" [routerLink]="['/claim-carrier-refund/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="eshipperApp.claimCarrierRefund.home.createLabel">
+            Create a new Claim Carrier Refund
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="claimCarrierRefunds?.length === 0">
+        <span jhiTranslate="eshipperApp.claimCarrierRefund.home.notFound">No claimCarrierRefunds found</span>
+    </div>
+    <div class="table-responsive" *ngIf="claimCarrierRefunds?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimCarrierRefund.carrierClaim">Carrier Claim</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimCarrierRefund.amount">Amount</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimCarrierRefund.chequeNumber">Cheque Number</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimCarrierRefund.cheque">Cheque</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimCarrierRefund.date">Date</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let claimCarrierRefund of claimCarrierRefunds ;trackBy: trackId">
+                <td><a [routerLink]="['/claim-carrier-refund', claimCarrierRefund.id, 'view' ]">{{claimCarrierRefund.id}}</a></td>
+                <td>{{claimCarrierRefund.carrierClaim}}</td>
+                <td>{{claimCarrierRefund.amount}}</td>
+                <td>{{claimCarrierRefund.chequeNumber}}</td>
+                <td>{{claimCarrierRefund.cheque}}</td>
+                <td>{{claimCarrierRefund.date | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/claim-carrier-refund', claimCarrierRefund.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/claim-carrier-refund', claimCarrierRefund.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(claimCarrierRefund)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

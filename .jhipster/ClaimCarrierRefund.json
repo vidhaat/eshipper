@@ -1,0 +1,49 @@
+{
+    "name": "ClaimCarrierRefund",
+    "fields": [
+        {
+            "fieldName": "carrierClaim",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "chequeNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cheque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "currency",
+            "otherEntityRelationshipName": "claimCarrierRefund",
+            "relationshipName": "currency"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimCarrierRefundStatus",
+            "otherEntityRelationshipName": "claimCarrierRefund",
+            "relationshipName": "refundStatus"
+        }
+    ],
+    "changelogDate": "20200109125500",
+    "entityTableName": "claim_carrier_refund",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,29 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="elasticsearchStatus">
+            <h2><span jhiTranslate="eshipperApp.elasticsearchStatus.detail.title">Elasticsearch Status</span> {{elasticsearchStatus.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.elasticsearchStatus.elasticShippingClaim">Elastic Shipping Claim</span></dt>
+                <dd>
+                    <div *ngIf="elasticsearchStatus.elasticShippingClaimId">
+                        <a [routerLink]="['/elastic-shipping-claim', elasticsearchStatus.elasticShippingClaimId, 'view']">{{elasticsearchStatus.elasticShippingClaimId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/elasticsearch-status', elasticsearchStatus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

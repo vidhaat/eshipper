@@ -1,0 +1,28 @@
+{
+    "name": "ClaimAssignee",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "claimAssignee",
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125457",
+    "entityTableName": "claim_assignee",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

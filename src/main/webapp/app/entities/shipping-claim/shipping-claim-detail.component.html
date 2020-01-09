@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shippingClaim">
+            <h2><span jhiTranslate="eshipperApp.shippingClaim.detail.title">Shipping Claim</span> {{shippingClaim.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.receivedDate">Received Date</span></dt>
+                <dd>
+                    <span>{{shippingClaim.receivedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.mailedDate">Mailed Date</span></dt>
+                <dd>
+                    <span>{{shippingClaim.mailedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{shippingClaim.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.updatedDate">Updated Date</span></dt>
+                <dd>
+                    <span>{{shippingClaim.updatedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.trackingNumber">Tracking Number</span></dt>
+                <dd>
+                    <span>{{shippingClaim.trackingNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.subject">Subject</span></dt>
+                <dd>
+                    <span>{{shippingClaim.subject}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.description">Description</span></dt>
+                <dd>
+                    <span>{{shippingClaim.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.notifyCustomer">Notify Customer</span></dt>
+                <dd>
+                    <span>{{shippingClaim.notifyCustomer}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.missingDocuments">Missing Documents</span></dt>
+                <dd>
+                    <span>{{shippingClaim.missingDocuments}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.claimCarrierRefund">Claim Carrier Refund</span></dt>
+                <dd>
+                    <div *ngIf="shippingClaim.claimCarrierRefundId">
+                        <a [routerLink]="['/claim-carrier-refund', shippingClaim.claimCarrierRefundId, 'view']">{{shippingClaim.claimCarrierRefundId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.claimEshipperRefund">Claim Eshipper Refund</span></dt>
+                <dd>
+                    <div *ngIf="shippingClaim.claimEshipperRefundId">
+                        <a [routerLink]="['/claim-eshipper-refund', shippingClaim.claimEshipperRefundId, 'view']">{{shippingClaim.claimEshipperRefundId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.claimAttachment">Claim Attachment</span></dt>
+                <dd>
+                    <div *ngIf="shippingClaim.claimAttachmentId">
+                        <a [routerLink]="['/claim-attachment', shippingClaim.claimAttachmentId, 'view']">{{shippingClaim.claimAttachmentId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.shippingClaim.claimMissingDocument">Claim Missing Document</span></dt>
+                <dd>
+                    <div *ngIf="shippingClaim.claimMissingDocumentId">
+                        <a [routerLink]="['/claim-missing-document', shippingClaim.claimMissingDocumentId, 'view']">{{shippingClaim.claimMissingDocumentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shipping-claim', shippingClaim.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

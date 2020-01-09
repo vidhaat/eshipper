@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="claimEshipperRefund">
+            <h2><span jhiTranslate="eshipperApp.claimEshipperRefund.detail.title">Claim Eshipper Refund</span> {{claimEshipperRefund.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.claimEshipperRefund.amount">Amount</span></dt>
+                <dd>
+                    <span>{{claimEshipperRefund.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimEshipperRefund.cheque">Cheque</span></dt>
+                <dd>
+                    <span>{{claimEshipperRefund.cheque}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimEshipperRefund.date">Date</span></dt>
+                <dd>
+                    <span>{{claimEshipperRefund.date}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/claim-eshipper-refund', claimEshipperRefund.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

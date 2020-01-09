@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="claimComment">
+            <h2><span jhiTranslate="eshipperApp.claimComment.detail.title">Claim Comment</span> {{claimComment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.claimComment.header">Header</span></dt>
+                <dd>
+                    <span>{{claimComment.header}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimComment.description">Description</span></dt>
+                <dd>
+                    <span>{{claimComment.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimComment.date">Date</span></dt>
+                <dd>
+                    <span>{{claimComment.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimComment.commentBy">Comment By</span></dt>
+                <dd>
+                    <span>{{claimComment.commentBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimComment.shippingClaim">Shipping Claim</span></dt>
+                <dd>
+                    <div *ngIf="claimComment.shippingClaimId">
+                        <a [routerLink]="['/shipping-claim', claimComment.shippingClaimId, 'view']">{{claimComment.shippingClaimId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/claim-comment', claimComment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

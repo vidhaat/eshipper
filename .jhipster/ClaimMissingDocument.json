@@ -1,0 +1,41 @@
+{
+    "name": "ClaimMissingDocument",
+    "fields": [
+        {
+            "fieldName": "documentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notifyClient",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "uploaded",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimDocumentType",
+            "otherEntityRelationshipName": "claimMissingDocument",
+            "relationshipName": "claimDocumentType"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "claimMissingDocument",
+            "relationshipName": "shippingClaim"
+        }
+    ],
+    "changelogDate": "20200109125454",
+    "entityTableName": "claim_missing_document",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

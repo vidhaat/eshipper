@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="claimDocumentType">
+            <h2><span jhiTranslate="eshipperApp.claimDocumentType.detail.title">Claim Document Type</span> {{claimDocumentType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.claimDocumentType.name">Name</span></dt>
+                <dd>
+                    <span>{{claimDocumentType.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimDocumentType.claimMissingDocument">Claim Missing Document</span></dt>
+                <dd>
+                    <div *ngIf="claimDocumentType.claimMissingDocumentId">
+                        <a [routerLink]="['/claim-missing-document', claimDocumentType.claimMissingDocumentId, 'view']">{{claimDocumentType.claimMissingDocumentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/claim-document-type', claimDocumentType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{
+    "name": "ClaimEshipperRefund",
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "cheque",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "currency",
+            "otherEntityRelationshipName": "claimEshipperRefund",
+            "relationshipName": "currency"
+        }
+    ],
+    "changelogDate": "20200109125503",
+    "entityTableName": "claim_eshipper_refund",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

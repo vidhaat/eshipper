@@ -1,0 +1,30 @@
+{
+    "name": "ElasticShippingClaim",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "elasticShippingClaim",
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "elasticsearchStatus",
+            "otherEntityRelationshipName": "elasticShippingClaim",
+            "relationshipName": "elasticStatus"
+        }
+    ],
+    "changelogDate": "20200109125504",
+    "entityTableName": "elastic_shipping_claim",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

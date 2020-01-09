@@ -1,0 +1,26 @@
+{
+  "eshipperApp": {
+    "claimMissingDocument": {
+      "home": {
+        "title": "Claim Missing Documents",
+        "createLabel": "Create a new Claim Missing Document",
+        "createOrEditLabel": "Create or edit a Claim Missing Document",
+        "notFound": "No Claim Missing Documents found"
+      },
+      "created": "A new Claim Missing Document is created with identifier {{ param }}",
+      "updated": "A Claim Missing Document is updated with identifier {{ param }}",
+      "deleted": "A Claim Missing Document is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Missing Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Missing Document"
+      },
+      "documentName": "Document Name",
+      "notifyClient": "Notify Client",
+      "uploaded": "Uploaded",
+      "claimDocumentType": "Claim Document Type",
+      "shippingClaim": "Shipping Claim"
+    }
+  }
+}

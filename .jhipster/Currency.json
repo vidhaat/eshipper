@@ -1,0 +1,35 @@
+{
+    "name": "Currency",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "claimCarrierRefund",
+            "otherEntityRelationshipName": "currency",
+            "relationshipName": "claimCarrierRefund",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "claimEshipperRefund",
+            "otherEntityRelationshipName": "currency",
+            "relationshipName": "claimEshipperRefund",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109125459",
+    "entityTableName": "currency",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

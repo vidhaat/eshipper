@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ShippingClaim.
+    -->
+    <changeSet id="20200109125448-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="claim_carrier_refund_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_carrier_refund_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_carrier_refund"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_eshipper_refund_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_eshipper_refund_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_eshipper_refund"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_attachment_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_attachment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_attachment"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_missing_document_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_missing_document_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_missing_document"/>
+
+    </changeSet>
+</databaseChangeLog>

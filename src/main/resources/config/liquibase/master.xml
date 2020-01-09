@@ -22,6 +22,23 @@
     <include file="config/liquibase/changelog/20200108090709_added_entity_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200108090710_added_entity_Job.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200108090711_added_entity_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125448_added_entity_ShippingClaim.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125449_added_entity_ClaimStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125450_added_entity_ContactPreference.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125451_added_entity_TicketReason.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125452_added_entity_ShippingOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125453_added_entity_ClaimAttachment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125454_added_entity_ClaimMissingDocument.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125455_added_entity_ClaimDocumentType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125456_added_entity_ClaimSolution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125457_added_entity_ClaimAssignee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125458_added_entity_ClaimComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125459_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125500_added_entity_ClaimCarrierRefund.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125502_added_entity_ClaimCarrierRefundStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125503_added_entity_ClaimEshipperRefund.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125504_added_entity_ElasticShippingClaim.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125505_added_entity_ElasticsearchStatus.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200108090705_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200108090706_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>
@@ -29,5 +46,18 @@
     <include file="config/liquibase/changelog/20200108090709_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200108090710_added_entity_constraints_Job.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200108090711_added_entity_constraints_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125448_added_entity_constraints_ShippingClaim.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125449_added_entity_constraints_ClaimStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125450_added_entity_constraints_ContactPreference.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125451_added_entity_constraints_TicketReason.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125452_added_entity_constraints_ShippingOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125455_added_entity_constraints_ClaimDocumentType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125456_added_entity_constraints_ClaimSolution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125457_added_entity_constraints_ClaimAssignee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125458_added_entity_constraints_ClaimComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125459_added_entity_constraints_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125502_added_entity_constraints_ClaimCarrierRefundStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125504_added_entity_constraints_ElasticShippingClaim.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109125505_added_entity_constraints_ElasticsearchStatus.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

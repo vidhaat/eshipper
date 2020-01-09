@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="currency">
+            <h2><span jhiTranslate="eshipperApp.currency.detail.title">Currency</span> {{currency.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.currency.name">Name</span></dt>
+                <dd>
+                    <span>{{currency.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.currency.claimCarrierRefund">Claim Carrier Refund</span></dt>
+                <dd>
+                    <div *ngIf="currency.claimCarrierRefundId">
+                        <a [routerLink]="['/claim-carrier-refund', currency.claimCarrierRefundId, 'view']">{{currency.claimCarrierRefundId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.currency.claimEshipperRefund">Claim Eshipper Refund</span></dt>
+                <dd>
+                    <div *ngIf="currency.claimEshipperRefundId">
+                        <a [routerLink]="['/claim-eshipper-refund', currency.claimEshipperRefundId, 'view']">{{currency.claimEshipperRefundId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/currency', currency.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

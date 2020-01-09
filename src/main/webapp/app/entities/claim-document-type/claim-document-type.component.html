@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eshipperApp.claimDocumentType.home.title">Claim Document Types</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-claim-document-type" [routerLink]="['/claim-document-type/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="eshipperApp.claimDocumentType.home.createLabel">
+            Create a new Claim Document Type
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="claimDocumentTypes?.length === 0">
+        <span jhiTranslate="eshipperApp.claimDocumentType.home.notFound">No claimDocumentTypes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="claimDocumentTypes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimDocumentType.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimDocumentType.claimMissingDocument">Claim Missing Document</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let claimDocumentType of claimDocumentTypes ;trackBy: trackId">
+                <td><a [routerLink]="['/claim-document-type', claimDocumentType.id, 'view' ]">{{claimDocumentType.id}}</a></td>
+                <td>{{claimDocumentType.name}}</td>
+                <td>
+                    <div *ngIf="claimDocumentType.claimMissingDocumentId">
+                        <a [routerLink]="['/claim-missing-document', claimDocumentType.claimMissingDocumentId , 'view' ]" >{{claimDocumentType.claimMissingDocumentId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/claim-document-type', claimDocumentType.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/claim-document-type', claimDocumentType.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(claimDocumentType)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

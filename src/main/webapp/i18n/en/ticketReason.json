@@ -1,0 +1,22 @@
+{
+  "eshipperApp": {
+    "ticketReason": {
+      "home": {
+        "title": "Ticket Reasons",
+        "createLabel": "Create a new Ticket Reason",
+        "createOrEditLabel": "Create or edit a Ticket Reason",
+        "notFound": "No Ticket Reasons found"
+      },
+      "created": "A new Ticket Reason is created with identifier {{ param }}",
+      "updated": "A Ticket Reason is updated with identifier {{ param }}",
+      "deleted": "A Ticket Reason is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ticket Reason {{ id }}?"
+      },
+      "detail": {
+        "title": "Ticket Reason"
+      },
+      "shippingClaim": "Shipping Claim"
+    }
+  }
+}
