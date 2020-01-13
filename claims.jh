@@ -87,7 +87,7 @@ entity ElasticsearchStatus{
 relationship OneToOne{
  ShippingClaim{claimCarrierRefund} to  ClaimCarrierRefund,
  ShippingClaim{claimEshipperRefund} to  ClaimEshipperRefund,
- ElasticShippingClaim{shippingClaim} to ShippingClaim
+ ElasticShippingClaim{shippingClaim} to ShippingClaim,
  ContactPreference{user} to User
 
 }
@@ -96,9 +96,9 @@ relationship ManyToOne{
  ClaimMissingDocument{claimDocumentType} to ClaimDocumentType,
  ClaimAttachment{shippingClaim} to ShippingClaim,
  ShippingClaim{shippingOrder} to ShippingOrder,
- ShippingClaim{ticketReason} to TicketReason,Ī
+ ShippingClaim{ticketReason} to TicketReason,
  ShippingClaim{claimStatus} to ClaimStatus,
- ClaimMissingDocument{shippingClaim} to ShippingClaim
+ ClaimMissingDocument{shippingClaim} to ShippingClaim,
  ShippingClaim{claimSolution} to ClaimSolution,
  ShippingClaim{claimAssignee} to ClaimAssignee,
  ShippingClaim{claimComment} to ClaimComment,
@@ -107,7 +107,7 @@ relationship ManyToOne{
  ClaimEshipperRefund{currency} to Currency,
  ElasticShippingClaim{elasticStatus} to ElasticsearchStatus,
  ClaimComment{user} to User,
- ShippingClaim{contactPreference} to ContactPreference,
+ ShippingClaim{contactPreference} to ContactPreference
 }
 
 service all with serviceImpl
