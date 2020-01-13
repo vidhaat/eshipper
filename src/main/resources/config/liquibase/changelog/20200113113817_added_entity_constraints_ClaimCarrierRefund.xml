@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ClaimCarrierRefund.
+    -->
+    <changeSet id="20200113113817-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="currency_id"
+                                 baseTableName="claim_carrier_refund"
+                                 constraintName="fk_claim_carrier_refund_currency_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="refund_status_id"
+                                 baseTableName="claim_carrier_refund"
+                                 constraintName="fk_claim_carrier_refund_refund_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_carrier_refund_status"/>
+
+    </changeSet>
+</databaseChangeLog>

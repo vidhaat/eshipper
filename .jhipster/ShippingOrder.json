@@ -1,0 +1,15 @@
+{
+    "name": "ShippingOrder",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20200113113809",
+    "entityTableName": "shipping_order",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

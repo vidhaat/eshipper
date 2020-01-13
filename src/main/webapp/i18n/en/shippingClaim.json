@@ -1,0 +1,39 @@
+{
+  "eshipperApp": {
+    "shippingClaim": {
+      "home": {
+        "title": "Shipping Claims",
+        "createLabel": "Create a new Shipping Claim",
+        "createOrEditLabel": "Create or edit a Shipping Claim",
+        "notFound": "No Shipping Claims found"
+      },
+      "created": "A new Shipping Claim is created with identifier {{ param }}",
+      "updated": "A Shipping Claim is updated with identifier {{ param }}",
+      "deleted": "A Shipping Claim is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipping Claim {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipping Claim"
+      },
+      "receivedDate": "Received Date",
+      "mailedDate": "Mailed Date",
+      "createdDate": "Created Date",
+      "updatedDate": "Updated Date",
+      "trackingNumber": "Tracking Number",
+      "subject": "Subject",
+      "description": "Description",
+      "notifyCustomer": "Notify Customer",
+      "missingDocuments": "Missing Documents",
+      "claimCarrierRefund": "Claim Carrier Refund",
+      "claimEshipperRefund": "Claim Eshipper Refund",
+      "shippingOrder": "Shipping Order",
+      "ticketReason": "Ticket Reason",
+      "claimStatus": "Claim Status",
+      "claimSolution": "Claim Solution",
+      "claimAssignee": "Claim Assignee",
+      "claimComment": "Claim Comment",
+      "contactPreference": "Contact Preference"
+    }
+  }
+}

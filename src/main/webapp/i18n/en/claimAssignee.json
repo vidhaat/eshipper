@@ -1,0 +1,22 @@
+{
+  "eshipperApp": {
+    "claimAssignee": {
+      "home": {
+        "title": "Claim Assignees",
+        "createLabel": "Create a new Claim Assignee",
+        "createOrEditLabel": "Create or edit a Claim Assignee",
+        "notFound": "No Claim Assignees found"
+      },
+      "created": "A new Claim Assignee is created with identifier {{ param }}",
+      "updated": "A Claim Assignee is updated with identifier {{ param }}",
+      "deleted": "A Claim Assignee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Assignee {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Assignee"
+      },
+      "name": "Name"
+    }
+  }
+}

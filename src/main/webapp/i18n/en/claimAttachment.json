@@ -1,0 +1,23 @@
+{
+  "eshipperApp": {
+    "claimAttachment": {
+      "home": {
+        "title": "Claim Attachments",
+        "createLabel": "Create a new Claim Attachment",
+        "createOrEditLabel": "Create or edit a Claim Attachment",
+        "notFound": "No Claim Attachments found"
+      },
+      "created": "A new Claim Attachment is created with identifier {{ param }}",
+      "updated": "A Claim Attachment is updated with identifier {{ param }}",
+      "deleted": "A Claim Attachment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Attachment {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Attachment"
+      },
+      "attachmentPath": "Attachment Path",
+      "shippingClaim": "Shipping Claim"
+    }
+  }
+}

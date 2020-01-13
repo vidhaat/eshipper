@@ -1,0 +1,22 @@
+{
+  "eshipperApp": {
+    "contactPreference": {
+      "home": {
+        "title": "Contact Preferences",
+        "createLabel": "Create a new Contact Preference",
+        "createOrEditLabel": "Create or edit a Contact Preference",
+        "notFound": "No Contact Preferences found"
+      },
+      "created": "A new Contact Preference is created with identifier {{ param }}",
+      "updated": "A Contact Preference is updated with identifier {{ param }}",
+      "deleted": "A Contact Preference is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contact Preference {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact Preference"
+      },
+      "user": "User"
+    }
+  }
+}

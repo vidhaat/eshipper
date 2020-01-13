@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ShippingClaim.
+    -->
+    <changeSet id="20200113113805-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="claim_carrier_refund_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_carrier_refund_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_carrier_refund"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_eshipper_refund_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_eshipper_refund_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_eshipper_refund"/>
+
+        <addForeignKeyConstraint baseColumnNames="shipping_order_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_shipping_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shipping_order"/>
+
+        <addForeignKeyConstraint baseColumnNames="ticket_reason_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_ticket_reason_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ticket_reason"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_status_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_solution_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_solution_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_solution"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_assignee_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_assignee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_assignee"/>
+
+        <addForeignKeyConstraint baseColumnNames="claim_comment_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_claim_comment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="claim_comment"/>
+
+        <addForeignKeyConstraint baseColumnNames="contact_preference_id"
+                                 baseTableName="shipping_claim"
+                                 constraintName="fk_shipping_claim_contact_preference_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contact_preference"/>
+
+    </changeSet>
+</databaseChangeLog>

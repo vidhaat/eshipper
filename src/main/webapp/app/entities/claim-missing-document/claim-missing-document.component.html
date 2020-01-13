@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eshipperApp.claimMissingDocument.home.title">Claim Missing Documents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-claim-missing-document" [routerLink]="['/claim-missing-document/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="eshipperApp.claimMissingDocument.home.createLabel">
+            Create a new Claim Missing Document
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="claimMissingDocuments?.length === 0">
+        <span jhiTranslate="eshipperApp.claimMissingDocument.home.notFound">No claimMissingDocuments found</span>
+    </div>
+    <div class="table-responsive" *ngIf="claimMissingDocuments?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimMissingDocument.documentName">Document Name</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimMissingDocument.notifyClient">Notify Client</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimMissingDocument.uploaded">Uploaded</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimMissingDocument.claimDocumentType">Claim Document Type</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimMissingDocument.shippingClaim">Shipping Claim</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let claimMissingDocument of claimMissingDocuments ;trackBy: trackId">
+                <td><a [routerLink]="['/claim-missing-document', claimMissingDocument.id, 'view' ]">{{claimMissingDocument.id}}</a></td>
+                <td>{{claimMissingDocument.documentName}}</td>
+                <td>{{claimMissingDocument.notifyClient}}</td>
+                <td>{{claimMissingDocument.uploaded}}</td>
+                <td>
+                    <div *ngIf="claimMissingDocument.claimDocumentTypeId">
+                        <a [routerLink]="['/claim-document-type', claimMissingDocument.claimDocumentTypeId , 'view' ]" >{{claimMissingDocument.claimDocumentTypeId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="claimMissingDocument.shippingClaimId">
+                        <a [routerLink]="['/shipping-claim', claimMissingDocument.shippingClaimId , 'view' ]" >{{claimMissingDocument.shippingClaimId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/claim-missing-document', claimMissingDocument.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/claim-missing-document', claimMissingDocument.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(claimMissingDocument)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

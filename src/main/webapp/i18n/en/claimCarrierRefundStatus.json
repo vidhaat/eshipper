@@ -1,0 +1,22 @@
+{
+  "eshipperApp": {
+    "claimCarrierRefundStatus": {
+      "home": {
+        "title": "Claim Carrier Refund Statuses",
+        "createLabel": "Create a new Claim Carrier Refund Status",
+        "createOrEditLabel": "Create or edit a Claim Carrier Refund Status",
+        "notFound": "No Claim Carrier Refund Statuses found"
+      },
+      "created": "A new Claim Carrier Refund Status is created with identifier {{ param }}",
+      "updated": "A Claim Carrier Refund Status is updated with identifier {{ param }}",
+      "deleted": "A Claim Carrier Refund Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Carrier Refund Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Carrier Refund Status"
+      },
+      "status": "Status"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "eshipperApp": {
+    "claimStatus": {
+      "home": {
+        "title": "Claim Statuses",
+        "createLabel": "Create a new Claim Status",
+        "createOrEditLabel": "Create or edit a Claim Status",
+        "notFound": "No Claim Statuses found"
+      },
+      "created": "A new Claim Status is created with identifier {{ param }}",
+      "updated": "A Claim Status is updated with identifier {{ param }}",
+      "deleted": "A Claim Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Status"
+      },
+      "name": "Name"
+    }
+  }
+}
