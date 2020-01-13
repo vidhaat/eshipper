@@ -1,0 +1,136 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-shipping-claim-heading" jhiTranslate="eshipperApp.shippingClaim.home.createOrEditLabel">Create or edit a Shipping Claim</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.receivedDate" for="field_receivedDate">Received Date</label>
+                    <div class="d-flex">
+                        <input id="field_receivedDate" type="datetime-local" class="form-control" name="receivedDate" formControlName="receivedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.mailedDate" for="field_mailedDate">Mailed Date</label>
+                    <div class="d-flex">
+                        <input id="field_mailedDate" type="datetime-local" class="form-control" name="mailedDate" formControlName="mailedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.updatedDate" for="field_updatedDate">Updated Date</label>
+                    <div class="d-flex">
+                        <input id="field_updatedDate" type="datetime-local" class="form-control" name="updatedDate" formControlName="updatedDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.trackingNumber" for="field_trackingNumber">Tracking Number</label>
+                    <input type="text" class="form-control" name="trackingNumber" id="field_trackingNumber"
+                           formControlName="trackingNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.subject" for="field_subject">Subject</label>
+                    <input type="text" class="form-control" name="subject" id="field_subject"
+                           formControlName="subject"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.notifyCustomer" for="field_notifyCustomer">Notify Customer</label>
+                    <input type="checkbox" class="form-control" name="notifyCustomer" id="field_notifyCustomer"
+                           formControlName="notifyCustomer"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.missingDocuments" for="field_missingDocuments">Missing Documents</label>
+                    <input type="checkbox" class="form-control" name="missingDocuments" id="field_missingDocuments"
+                           formControlName="missingDocuments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.claimCarrierRefund" for="field_claimCarrierRefund">Claim Carrier Refund</label>
+                    <select class="form-control" id="field_claimCarrierRefund" name="claimCarrierRefund" formControlName="claimCarrierRefundId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimCarrierRefundOption.id" *ngFor="let claimCarrierRefundOption of claimcarrierrefunds; trackBy: trackById">{{claimCarrierRefundOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.claimEshipperRefund" for="field_claimEshipperRefund">Claim Eshipper Refund</label>
+                    <select class="form-control" id="field_claimEshipperRefund" name="claimEshipperRefund" formControlName="claimEshipperRefundId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimEshipperRefundOption.id" *ngFor="let claimEshipperRefundOption of claimeshipperrefunds; trackBy: trackById">{{claimEshipperRefundOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.shippingOrder" for="field_shippingOrder">Shipping Order</label>
+                    <select class="form-control" id="field_shippingOrder" name="shippingOrder" formControlName="shippingOrderId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shippingOrderOption.id" *ngFor="let shippingOrderOption of shippingorders; trackBy: trackById">{{shippingOrderOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.ticketReason" for="field_ticketReason">Ticket Reason</label>
+                    <select class="form-control" id="field_ticketReason" name="ticketReason" formControlName="ticketReasonId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ticketReasonOption.id" *ngFor="let ticketReasonOption of ticketreasons; trackBy: trackById">{{ticketReasonOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.claimStatus" for="field_claimStatus">Claim Status</label>
+                    <select class="form-control" id="field_claimStatus" name="claimStatus" formControlName="claimStatusId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimStatusOption.id" *ngFor="let claimStatusOption of claimstatuses; trackBy: trackById">{{claimStatusOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.claimSolution" for="field_claimSolution">Claim Solution</label>
+                    <select class="form-control" id="field_claimSolution" name="claimSolution" formControlName="claimSolutionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimSolutionOption.id" *ngFor="let claimSolutionOption of claimsolutions; trackBy: trackById">{{claimSolutionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.claimAssignee" for="field_claimAssignee">Claim Assignee</label>
+                    <select class="form-control" id="field_claimAssignee" name="claimAssignee" formControlName="claimAssigneeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimAssigneeOption.id" *ngFor="let claimAssigneeOption of claimassignees; trackBy: trackById">{{claimAssigneeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.claimComment" for="field_claimComment">Claim Comment</label>
+                    <select class="form-control" id="field_claimComment" name="claimComment" formControlName="claimCommentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimCommentOption.id" *ngFor="let claimCommentOption of claimcomments; trackBy: trackById">{{claimCommentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.shippingClaim.contactPreference" for="field_contactPreference">Contact Preference</label>
+                    <select class="form-control" id="field_contactPreference" name="contactPreference" formControlName="contactPreferenceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactPreferenceOption.id" *ngFor="let contactPreferenceOption of contactpreferences; trackBy: trackById">{{contactPreferenceOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

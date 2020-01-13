@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="claimMissingDocument">
+            <h2><span jhiTranslate="eshipperApp.claimMissingDocument.detail.title">Claim Missing Document</span> {{claimMissingDocument.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.claimMissingDocument.documentName">Document Name</span></dt>
+                <dd>
+                    <span>{{claimMissingDocument.documentName}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimMissingDocument.notifyClient">Notify Client</span></dt>
+                <dd>
+                    <span>{{claimMissingDocument.notifyClient}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimMissingDocument.uploaded">Uploaded</span></dt>
+                <dd>
+                    <span>{{claimMissingDocument.uploaded}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimMissingDocument.claimDocumentType">Claim Document Type</span></dt>
+                <dd>
+                    <div *ngIf="claimMissingDocument.claimDocumentTypeId">
+                        <a [routerLink]="['/claim-document-type', claimMissingDocument.claimDocumentTypeId, 'view']">{{claimMissingDocument.claimDocumentTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimMissingDocument.shippingClaim">Shipping Claim</span></dt>
+                <dd>
+                    <div *ngIf="claimMissingDocument.shippingClaimId">
+                        <a [routerLink]="['/shipping-claim', claimMissingDocument.shippingClaimId, 'view']">{{claimMissingDocument.shippingClaimId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/claim-missing-document', claimMissingDocument.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+    "name": "ClaimAttachment",
+    "fields": [
+        {
+            "fieldName": "attachmentPath",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "claimAttachment",
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200113113810",
+    "entityTableName": "claim_attachment",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

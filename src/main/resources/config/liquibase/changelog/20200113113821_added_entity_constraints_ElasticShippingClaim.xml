@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ElasticShippingClaim.
+    -->
+    <changeSet id="20200113113821-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="shipping_claim_id"
+                                 baseTableName="elastic_shipping_claim"
+                                 constraintName="fk_elastic_shipping_claim_shipping_claim_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shipping_claim"/>
+
+        <addForeignKeyConstraint baseColumnNames="elastic_status_id"
+                                 baseTableName="elastic_shipping_claim"
+                                 constraintName="fk_elastic_shipping_claim_elastic_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="elasticsearch_status"/>
+
+    </changeSet>
+</databaseChangeLog>

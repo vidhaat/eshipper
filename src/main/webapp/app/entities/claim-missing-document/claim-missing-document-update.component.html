@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-claim-missing-document-heading" jhiTranslate="eshipperApp.claimMissingDocument.home.createOrEditLabel">Create or edit a Claim Missing Document</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.claimMissingDocument.documentName" for="field_documentName">Document Name</label>
+                    <input type="text" class="form-control" name="documentName" id="field_documentName"
+                           formControlName="documentName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.claimMissingDocument.notifyClient" for="field_notifyClient">Notify Client</label>
+                    <input type="checkbox" class="form-control" name="notifyClient" id="field_notifyClient"
+                           formControlName="notifyClient"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.claimMissingDocument.uploaded" for="field_uploaded">Uploaded</label>
+                    <input type="checkbox" class="form-control" name="uploaded" id="field_uploaded"
+                           formControlName="uploaded"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.claimMissingDocument.claimDocumentType" for="field_claimDocumentType">Claim Document Type</label>
+                    <select class="form-control" id="field_claimDocumentType" name="claimDocumentType" formControlName="claimDocumentTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claimDocumentTypeOption.id" *ngFor="let claimDocumentTypeOption of claimdocumenttypes; trackBy: trackById">{{claimDocumentTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.claimMissingDocument.shippingClaim" for="field_shippingClaim">Shipping Claim</label>
+                    <select class="form-control" id="field_shippingClaim" name="shippingClaim" formControlName="shippingClaimId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shippingClaimOption.id" *ngFor="let shippingClaimOption of shippingclaims; trackBy: trackById">{{shippingClaimOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{
+    "name": "TicketReason",
+    "fields": [],
+    "relationships": [],
+    "changelogDate": "20200113113808",
+    "entityTableName": "ticket_reason",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

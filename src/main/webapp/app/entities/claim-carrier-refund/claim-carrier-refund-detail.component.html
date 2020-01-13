@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="claimCarrierRefund">
+            <h2><span jhiTranslate="eshipperApp.claimCarrierRefund.detail.title">Claim Carrier Refund</span> {{claimCarrierRefund.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.carrierClaim">Carrier Claim</span></dt>
+                <dd>
+                    <span>{{claimCarrierRefund.carrierClaim}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.amount">Amount</span></dt>
+                <dd>
+                    <span>{{claimCarrierRefund.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.chequeNumber">Cheque Number</span></dt>
+                <dd>
+                    <span>{{claimCarrierRefund.chequeNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.cheque">Cheque</span></dt>
+                <dd>
+                    <span>{{claimCarrierRefund.cheque}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.date">Date</span></dt>
+                <dd>
+                    <span>{{claimCarrierRefund.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.currency">Currency</span></dt>
+                <dd>
+                    <div *ngIf="claimCarrierRefund.currencyId">
+                        <a [routerLink]="['/currency', claimCarrierRefund.currencyId, 'view']">{{claimCarrierRefund.currencyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eshipperApp.claimCarrierRefund.refundStatus">Refund Status</span></dt>
+                <dd>
+                    <div *ngIf="claimCarrierRefund.refundStatusId">
+                        <a [routerLink]="['/claim-carrier-refund-status', claimCarrierRefund.refundStatusId, 'view']">{{claimCarrierRefund.refundStatusId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/claim-carrier-refund', claimCarrierRefund.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

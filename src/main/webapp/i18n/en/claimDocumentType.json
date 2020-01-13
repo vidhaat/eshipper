@@ -1,0 +1,22 @@
+{
+  "eshipperApp": {
+    "claimDocumentType": {
+      "home": {
+        "title": "Claim Document Types",
+        "createLabel": "Create a new Claim Document Type",
+        "createOrEditLabel": "Create or edit a Claim Document Type",
+        "notFound": "No Claim Document Types found"
+      },
+      "created": "A new Claim Document Type is created with identifier {{ param }}",
+      "updated": "A Claim Document Type is updated with identifier {{ param }}",
+      "deleted": "A Claim Document Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Document Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Document Type"
+      },
+      "name": "Name"
+    }
+  }
+}

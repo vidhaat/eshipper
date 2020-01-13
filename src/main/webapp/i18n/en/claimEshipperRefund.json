@@ -1,0 +1,25 @@
+{
+  "eshipperApp": {
+    "claimEshipperRefund": {
+      "home": {
+        "title": "Claim Eshipper Refunds",
+        "createLabel": "Create a new Claim Eshipper Refund",
+        "createOrEditLabel": "Create or edit a Claim Eshipper Refund",
+        "notFound": "No Claim Eshipper Refunds found"
+      },
+      "created": "A new Claim Eshipper Refund is created with identifier {{ param }}",
+      "updated": "A Claim Eshipper Refund is updated with identifier {{ param }}",
+      "deleted": "A Claim Eshipper Refund is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Claim Eshipper Refund {{ id }}?"
+      },
+      "detail": {
+        "title": "Claim Eshipper Refund"
+      },
+      "amount": "Amount",
+      "cheque": "Cheque",
+      "date": "Date",
+      "currency": "Currency"
+    }
+  }
+}
