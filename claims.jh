@@ -1,0 +1,116 @@
+entity ShippingClaim{
+ receivedDate ZonedDateTime,
+ mailedDate ZonedDateTime,
+ createdDate ZonedDateTime,
+ updatedDate ZonedDateTime,
+ trackingNumber String,
+ subject String,
+ description String,
+ notifyCustomer Boolean,
+ missingDocuments Boolean
+}
+
+entity ClaimStatus{
+ name String
+}
+
+entity ContactPreference{
+}
+
+entity TicketReason{
+}
+
+entity ShippingOrder{
+}
+
+entity ClaimAttachment{
+ attachmentPath String,
+}
+
+entity ClaimMissingDocument{
+ documentName String,
+ notifyClient Boolean,
+ uploaded Boolean,
+}
+
+entity ClaimDocumentType{
+ name String
+}
+
+entity ClaimSolution{
+ name String
+}
+
+entity ClaimAssignee{
+ name String
+}
+
+entity ClaimComment{
+ header String,
+ description String,
+ date ZonedDateTime,
+ commentBy String
+}
+
+entity Currency{
+ name String
+}
+
+entity ClaimCarrierRefund{
+ carrierClaim String,
+ amount Double,
+ chequeNumber String,
+ cheque String,
+ date ZonedDateTime
+}
+
+entity User{
+}
+
+entity ClaimCarrierRefundStatus{
+ status String
+}
+entity ClaimEshipperRefund{
+ amount Double,
+ cheque String,
+ date ZonedDateTime
+}
+
+entity ElasticShippingClaim{
+
+}
+
+entity ElasticsearchStatus{
+
+}
+
+relationship OneToOne{
+ ShippingClaim{claimCarrierRefund} to  ClaimCarrierRefund,
+ ShippingClaim{claimEshipperRefund} to  ClaimEshipperRefund,
+ ElasticShippingClaim{shippingClaim} to ShippingClaim
+ ContactPreference{user} to User
+
+}
+
+relationship ManyToOne{
+ ClaimMissingDocument{claimDocumentType} to ClaimDocumentType,
+ ClaimAttachment{shippingClaim} to ShippingClaim,
+ ShippingClaim{shippingOrder} to ShippingOrder,
+ ShippingClaim{ticketReason} to TicketReason,Ī
+ ShippingClaim{claimStatus} to ClaimStatus,
+ ClaimMissingDocument{shippingClaim} to ShippingClaim
+ ShippingClaim{claimSolution} to ClaimSolution,
+ ShippingClaim{claimAssignee} to ClaimAssignee,
+ ShippingClaim{claimComment} to ClaimComment,
+ ClaimCarrierRefund{currency} to Currency,
+ ClaimCarrierRefund{refundStatus} to ClaimCarrierRefundStatus,
+ ClaimEshipperRefund{currency} to Currency,
+ ElasticShippingClaim{elasticStatus} to ElasticsearchStatus,
+ ClaimComment{user} to User,
+ ShippingClaim{contactPreference} to ContactPreference,
+}
+
+service all with serviceImpl
+
+paginate ShippingClaim with pagination
+dto * with mapstruct
