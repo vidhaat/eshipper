@@ -8,14 +8,14 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link ClaimComment} and its DTO {@link ClaimCommentDTO}.
  */
-@Mapper(componentModel = "spring", uses = {User1Mapper.class})
+@Mapper(componentModel = "spring", uses = {ShippingClaimMapper.class, User1Mapper.class})
 public interface ClaimCommentMapper extends EntityMapper<ClaimCommentDTO, ClaimComment> {
 
+    @Mapping(source = "shippingClaim.id", target = "shippingClaimId")
     @Mapping(source = "user1.id", target = "user1Id")
     ClaimCommentDTO toDto(ClaimComment claimComment);
 
-    @Mapping(target = "shippingClaims", ignore = true)
-    @Mapping(target = "removeShippingClaim", ignore = true)
+    @Mapping(source = "shippingClaimId", target = "shippingClaim")
     @Mapping(source = "user1Id", target = "user1")
     ClaimComment toEntity(ClaimCommentDTO claimCommentDTO);
 

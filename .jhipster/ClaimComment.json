@@ -20,10 +20,11 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "many-to-one",
             "otherEntityName": "shippingClaim",
             "otherEntityRelationshipName": "claimComment",
-            "relationshipName": "shippingClaim"
+            "relationshipName": "shippingClaim",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",

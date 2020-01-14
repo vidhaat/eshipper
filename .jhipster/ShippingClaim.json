@@ -68,6 +68,12 @@
             "relationshipName": "claimMissingDocument"
         },
         {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimComment",
+            "otherEntityRelationshipName": "shippingClaim",
+            "relationshipName": "claimComment"
+        },
+        {
             "relationshipType": "many-to-one",
             "otherEntityName": "shippingOrder",
             "otherEntityRelationshipName": "shippingClaim",
@@ -100,13 +106,6 @@
             "otherEntityName": "claimAssignee",
             "otherEntityRelationshipName": "shippingClaim",
             "relationshipName": "claimAssignee",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "claimComment",
-            "otherEntityRelationshipName": "shippingClaim",
-            "relationshipName": "claimComment",
             "otherEntityField": "id"
         },
         {

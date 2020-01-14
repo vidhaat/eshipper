@@ -21,6 +21,12 @@
                 <dd>
                     <span>{{claimComment.commentBy}}</span>
                 </dd>
+                <dt><span jhiTranslate="eshipperApp.claimComment.shippingClaim">Shipping Claim</span></dt>
+                <dd>
+                    <div *ngIf="claimComment.shippingClaimId">
+                        <a [routerLink]="['/shipping-claim', claimComment.shippingClaimId, 'view']">{{claimComment.shippingClaimId}}</a>
+                    </div>
+                </dd>
                 <dt><span jhiTranslate="eshipperApp.claimComment.user1">User 1</span></dt>
                 <dd>
                     <div *ngIf="claimComment.user1Id">

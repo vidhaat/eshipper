@@ -35,7 +35,6 @@
             <th scope="col"  jhiSortBy="claimStatusId"><span jhiTranslate="eshipperApp.shippingClaim.claimStatus">Claim Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="claimSolutionId"><span jhiTranslate="eshipperApp.shippingClaim.claimSolution">Claim Solution</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="claimAssigneeId"><span jhiTranslate="eshipperApp.shippingClaim.claimAssignee">Claim Assignee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th scope="col"  jhiSortBy="claimCommentId"><span jhiTranslate="eshipperApp.shippingClaim.claimComment">Claim Comment</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="contactPreferenceId"><span jhiTranslate="eshipperApp.shippingClaim.contactPreference">Contact Preference</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"></th>
             </tr>
@@ -85,11 +84,6 @@
                 <td>
                     <div *ngIf="shippingClaim.claimAssigneeId">
                         <a [routerLink]="['/claim-assignee', shippingClaim.claimAssigneeId , 'view' ]" >{{shippingClaim.claimAssigneeId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="shippingClaim.claimCommentId">
-                        <a [routerLink]="['/claim-comment', shippingClaim.claimCommentId , 'view' ]" >{{shippingClaim.claimCommentId}}</a>
                     </div>
                 </td>
                 <td>

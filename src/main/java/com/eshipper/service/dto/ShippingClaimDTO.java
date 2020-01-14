@@ -43,8 +43,6 @@ public class ShippingClaimDTO implements Serializable {
 
     private Long claimAssigneeId;
 
-    private Long claimCommentId;
-
     private Long contactPreferenceId;
 
     public Long getId() {
@@ -183,14 +181,6 @@ public class ShippingClaimDTO implements Serializable {
         this.claimAssigneeId = claimAssigneeId;
     }
 
-    public Long getClaimCommentId() {
-        return claimCommentId;
-    }
-
-    public void setClaimCommentId(Long claimCommentId) {
-        this.claimCommentId = claimCommentId;
-    }
-
     public Long getContactPreferenceId() {
         return contactPreferenceId;
     }
@@ -240,7 +230,6 @@ public class ShippingClaimDTO implements Serializable {
             ", claimStatusId=" + getClaimStatusId() +
             ", claimSolutionId=" + getClaimSolutionId() +
             ", claimAssigneeId=" + getClaimAssigneeId() +
-            ", claimCommentId=" + getClaimCommentId() +
             ", contactPreferenceId=" + getContactPreferenceId() +
             "}";
     }

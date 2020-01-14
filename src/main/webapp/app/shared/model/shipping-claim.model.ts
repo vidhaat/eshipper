@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import { IClaimAttachment } from 'app/shared/model/claim-attachment.model';
 import { IClaimMissingDocument } from 'app/shared/model/claim-missing-document.model';
+import { IClaimComment } from 'app/shared/model/claim-comment.model';
 
 export interface IShippingClaim {
   id?: number;
@@ -17,12 +18,12 @@ export interface IShippingClaim {
   claimEshipperRefundId?: number;
   claimAttachments?: IClaimAttachment[];
   claimMissingDocuments?: IClaimMissingDocument[];
+  claimComments?: IClaimComment[];
   shippingOrderId?: number;
   ticketReasonId?: number;
   claimStatusId?: number;
   claimSolutionId?: number;
   claimAssigneeId?: number;
-  claimCommentId?: number;
   contactPreferenceId?: number;
 }
 
@@ -42,12 +43,12 @@ export class ShippingClaim implements IShippingClaim {
     public claimEshipperRefundId?: number,
     public claimAttachments?: IClaimAttachment[],
     public claimMissingDocuments?: IClaimMissingDocument[],
+    public claimComments?: IClaimComment[],
     public shippingOrderId?: number,
     public ticketReasonId?: number,
     public claimStatusId?: number,
     public claimSolutionId?: number,
     public claimAssigneeId?: number,
-    public claimCommentId?: number,
     public contactPreferenceId?: number
   ) {
     this.notifyCustomer = this.notifyCustomer || false;

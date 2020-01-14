@@ -29,12 +29,12 @@
       "claimEshipperRefund": "Claim Eshipper Refund",
       "claimAttachment": "Claim Attachment",
       "claimMissingDocument": "Claim Missing Document",
+      "claimComment": "Claim Comment",
       "shippingOrder": "Shipping Order",
       "ticketReason": "Ticket Reason",
       "claimStatus": "Claim Status",
       "claimSolution": "Claim Solution",
       "claimAssignee": "Claim Assignee",
-      "claimComment": "Claim Comment",
       "contactPreference": "Contact Preference"
     }
   }

@@ -50,12 +50,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="claim_assignee"/>
 
-        <addForeignKeyConstraint baseColumnNames="claim_comment_id"
-                                 baseTableName="shipping_claim"
-                                 constraintName="fk_shipping_claim_claim_comment_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="claim_comment"/>
-
         <addForeignKeyConstraint baseColumnNames="contact_preference_id"
                                  baseTableName="shipping_claim"
                                  constraintName="fk_shipping_claim_contact_preference_id"

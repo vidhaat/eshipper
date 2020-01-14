@@ -10,8 +10,12 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IClaimComment, ClaimComment } from 'app/shared/model/claim-comment.model';
 import { ClaimCommentService } from './claim-comment.service';
+import { IShippingClaim } from 'app/shared/model/shipping-claim.model';
+import { ShippingClaimService } from 'app/entities/shipping-claim/shipping-claim.service';
 import { IUser1 } from 'app/shared/model/user-1.model';
 import { User1Service } from 'app/entities/user-1/user-1.service';
+
+type SelectableEntity = IShippingClaim | IUser1;
 
 @Component({
   selector: 'jhi-claim-comment-update',
@@ -19,6 +23,8 @@ import { User1Service } from 'app/entities/user-1/user-1.service';
 })
 export class ClaimCommentUpdateComponent implements OnInit {
   isSaving = false;
+
+  shippingclaims: IShippingClaim[] = [];
 
   user1s: IUser1[] = [];
 
@@ -28,11 +34,13 @@ export class ClaimCommentUpdateComponent implements OnInit {
     description: [],
     date: [],
     commentBy: [],
+    shippingClaimId: [],
     user1Id: []
   });
 
   constructor(
     protected claimCommentService: ClaimCommentService,
+    protected shippingClaimService: ShippingClaimService,
     protected user1Service: User1Service,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -41,6 +49,15 @@ export class ClaimCommentUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ claimComment }) => {
       this.updateForm(claimComment);
+
+      this.shippingClaimService
+        .query()
+        .pipe(
+          map((res: HttpResponse<IShippingClaim[]>) => {
+            return res.body ? res.body : [];
+          })
+        )
+        .subscribe((resBody: IShippingClaim[]) => (this.shippingclaims = resBody));
 
       this.user1Service
         .query()
@@ -60,6 +77,7 @@ export class ClaimCommentUpdateComponent implements OnInit {
       description: claimComment.description,
       date: claimComment.date != null ? claimComment.date.format(DATE_TIME_FORMAT) : null,
       commentBy: claimComment.commentBy,
+      shippingClaimId: claimComment.shippingClaimId,
       user1Id: claimComment.user1Id
     });
   }
@@ -86,6 +104,7 @@ export class ClaimCommentUpdateComponent implements OnInit {
       description: this.editForm.get(['description'])!.value,
       date: this.editForm.get(['date'])!.value != null ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
       commentBy: this.editForm.get(['commentBy'])!.value,
+      shippingClaimId: this.editForm.get(['shippingClaimId'])!.value,
       user1Id: this.editForm.get(['user1Id'])!.value
     };
   }
@@ -106,7 +125,7 @@ export class ClaimCommentUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IUser1): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

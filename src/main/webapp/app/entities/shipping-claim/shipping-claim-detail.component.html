@@ -83,12 +83,6 @@
                         <a [routerLink]="['/claim-assignee', shippingClaim.claimAssigneeId, 'view']">{{shippingClaim.claimAssigneeId}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eshipperApp.shippingClaim.claimComment">Claim Comment</span></dt>
-                <dd>
-                    <div *ngIf="shippingClaim.claimCommentId">
-                        <a [routerLink]="['/claim-comment', shippingClaim.claimCommentId, 'view']">{{shippingClaim.claimCommentId}}</a>
-                    </div>
-                </dd>
                 <dt><span jhiTranslate="eshipperApp.shippingClaim.contactPreference">Contact Preference</span></dt>
                 <dd>
                     <div *ngIf="shippingClaim.contactPreferenceId">

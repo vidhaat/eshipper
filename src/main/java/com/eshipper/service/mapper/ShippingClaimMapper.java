@@ -8,7 +8,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link ShippingClaim} and its DTO {@link ShippingClaimDTO}.
  */
-@Mapper(componentModel = "spring", uses = {ClaimCarrierRefundMapper.class, ClaimEshipperRefundMapper.class, ShippingOrderMapper.class, TicketReasonMapper.class, ClaimStatusMapper.class, ClaimSolutionMapper.class, ClaimAssigneeMapper.class, ClaimCommentMapper.class, ContactPreferenceMapper.class})
+@Mapper(componentModel = "spring", uses = {ClaimCarrierRefundMapper.class, ClaimEshipperRefundMapper.class, ShippingOrderMapper.class, TicketReasonMapper.class, ClaimStatusMapper.class, ClaimSolutionMapper.class, ClaimAssigneeMapper.class, ContactPreferenceMapper.class})
 public interface ShippingClaimMapper extends EntityMapper<ShippingClaimDTO, ShippingClaim> {
 
     @Mapping(source = "claimCarrierRefund.id", target = "claimCarrierRefundId")
@@ -18,7 +18,6 @@ public interface ShippingClaimMapper extends EntityMapper<ShippingClaimDTO, Ship
     @Mapping(source = "claimStatus.id", target = "claimStatusId")
     @Mapping(source = "claimSolution.id", target = "claimSolutionId")
     @Mapping(source = "claimAssignee.id", target = "claimAssigneeId")
-    @Mapping(source = "claimComment.id", target = "claimCommentId")
     @Mapping(source = "contactPreference.id", target = "contactPreferenceId")
     ShippingClaimDTO toDto(ShippingClaim shippingClaim);
 
@@ -28,12 +27,13 @@ public interface ShippingClaimMapper extends EntityMapper<ShippingClaimDTO, Ship
     @Mapping(target = "removeClaimAttachment", ignore = true)
     @Mapping(target = "claimMissingDocuments", ignore = true)
     @Mapping(target = "removeClaimMissingDocument", ignore = true)
+    @Mapping(target = "claimComments", ignore = true)
+    @Mapping(target = "removeClaimComment", ignore = true)
     @Mapping(source = "shippingOrderId", target = "shippingOrder")
     @Mapping(source = "ticketReasonId", target = "ticketReason")
     @Mapping(source = "claimStatusId", target = "claimStatus")
     @Mapping(source = "claimSolutionId", target = "claimSolution")
     @Mapping(source = "claimAssigneeId", target = "claimAssignee")
-    @Mapping(source = "claimCommentId", target = "claimComment")
     @Mapping(source = "contactPreferenceId", target = "contactPreference")
     ShippingClaim toEntity(ShippingClaimDTO shippingClaimDTO);
 

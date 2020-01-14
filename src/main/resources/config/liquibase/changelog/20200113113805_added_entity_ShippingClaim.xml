@@ -64,9 +64,6 @@
             <column name="claim_assignee_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="claim_comment_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <column name="contact_preference_id" type="bigint">
                 <constraints nullable="true" />
             </column>

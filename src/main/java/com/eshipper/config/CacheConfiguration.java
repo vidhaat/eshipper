@@ -87,6 +87,7 @@ public class CacheConfiguration {
             createCache(cm, com.eshipper.domain.User1.class.getName() + ".claimComments");
             createCache(cm, com.eshipper.domain.ClaimCarrierRefundStatus.class.getName() + ".claimCarrierRefunds");
             createCache(cm, com.eshipper.domain.ElasticsearchStatus.class.getName() + ".elasticShippingClaims");
+            createCache(cm, com.eshipper.domain.ShippingClaim.class.getName() + ".claimComments");
             // jhipster-needle-ehcache-add-entry
         };
     }
