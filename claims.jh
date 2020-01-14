@@ -101,7 +101,7 @@ relationship OneToOne{
  ShippingClaim to ClaimMissingDocument{shippingClaim},
  ClaimSolution to  ShippingClaim{claimSolution},
  ClaimAssignee to ShippingClaim{claimAssignee},
- ClaimComment to ShippingClaim{claimComment},
+ ShippingClaim to ClaimComment{shippingClaim},
  Currency to ClaimCarrierRefund{currency},
  ClaimCarrierRefundStatus to ClaimCarrierRefund{refundStatus},
  Currency to ClaimEshipperRefund{currency},
