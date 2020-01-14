@@ -5,6 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A ClaimAssignee.
@@ -22,6 +24,10 @@ public class ClaimAssignee implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "claimAssignee")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ShippingClaim> shippingClaims = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +49,31 @@ public class ClaimAssignee implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<ShippingClaim> getShippingClaims() {
+        return shippingClaims;
+    }
+
+    public ClaimAssignee shippingClaims(Set<ShippingClaim> shippingClaims) {
+        this.shippingClaims = shippingClaims;
+        return this;
+    }
+
+    public ClaimAssignee addShippingClaim(ShippingClaim shippingClaim) {
+        this.shippingClaims.add(shippingClaim);
+        shippingClaim.setClaimAssignee(this);
+        return this;
+    }
+
+    public ClaimAssignee removeShippingClaim(ShippingClaim shippingClaim) {
+        this.shippingClaims.remove(shippingClaim);
+        shippingClaim.setClaimAssignee(null);
+        return this;
+    }
+
+    public void setShippingClaims(Set<ShippingClaim> shippingClaims) {
+        this.shippingClaims = shippingClaims;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

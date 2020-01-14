@@ -23,7 +23,7 @@
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.description">Description</span></th>
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.date">Date</span></th>
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.commentBy">Comment By</span></th>
-            <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.user">User</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.user1">User 1</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -35,7 +35,9 @@
                 <td>{{claimComment.date | date:'medium'}}</td>
                 <td>{{claimComment.commentBy}}</td>
                 <td>
-                    {{claimComment.userId}}
+                    <div *ngIf="claimComment.user1Id">
+                        <a [routerLink]="['/user-1', claimComment.user1Id , 'view' ]" >{{claimComment.user1Id}}</a>
+                    </div>
                 </td>
                 <td class="text-right">
                     <div class="btn-group">

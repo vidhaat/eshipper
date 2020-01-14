@@ -16,7 +16,8 @@
       "detail": {
         "title": "Claim Carrier Refund Status"
       },
-      "status": "Status"
+      "status": "Status",
+      "claimCarrierRefund": "Claim Carrier Refund"
     }
   }
 }

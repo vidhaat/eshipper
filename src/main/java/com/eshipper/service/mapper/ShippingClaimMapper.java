@@ -24,6 +24,10 @@ public interface ShippingClaimMapper extends EntityMapper<ShippingClaimDTO, Ship
 
     @Mapping(source = "claimCarrierRefundId", target = "claimCarrierRefund")
     @Mapping(source = "claimEshipperRefundId", target = "claimEshipperRefund")
+    @Mapping(target = "claimAttachments", ignore = true)
+    @Mapping(target = "removeClaimAttachment", ignore = true)
+    @Mapping(target = "claimMissingDocuments", ignore = true)
+    @Mapping(target = "removeClaimMissingDocument", ignore = true)
     @Mapping(source = "shippingOrderId", target = "shippingOrder")
     @Mapping(source = "ticketReasonId", target = "ticketReason")
     @Mapping(source = "claimStatusId", target = "claimStatus")

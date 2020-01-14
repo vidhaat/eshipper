@@ -1,7 +1,14 @@
 {
     "name": "TicketReason",
     "fields": [],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "ticketReason",
+            "relationshipName": "shippingClaim"
+        }
+    ],
     "changelogDate": "20200113113808",
     "entityTableName": "ticket_reason",
     "dto": "mapstruct",

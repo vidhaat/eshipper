@@ -7,6 +7,8 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A ClaimComment.
@@ -34,9 +36,13 @@ public class ClaimComment implements Serializable {
     @Column(name = "comment_by")
     private String commentBy;
 
+    @OneToMany(mappedBy = "claimComment")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ShippingClaim> shippingClaims = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties("claimComments")
-    private User user;
+    private User1 user1;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -99,17 +105,42 @@ public class ClaimComment implements Serializable {
         this.commentBy = commentBy;
     }
 
-    public User getUser() {
-        return user;
+    public Set<ShippingClaim> getShippingClaims() {
+        return shippingClaims;
     }
 
-    public ClaimComment user(User user) {
-        this.user = user;
+    public ClaimComment shippingClaims(Set<ShippingClaim> shippingClaims) {
+        this.shippingClaims = shippingClaims;
         return this;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public ClaimComment addShippingClaim(ShippingClaim shippingClaim) {
+        this.shippingClaims.add(shippingClaim);
+        shippingClaim.setClaimComment(this);
+        return this;
+    }
+
+    public ClaimComment removeShippingClaim(ShippingClaim shippingClaim) {
+        this.shippingClaims.remove(shippingClaim);
+        shippingClaim.setClaimComment(null);
+        return this;
+    }
+
+    public void setShippingClaims(Set<ShippingClaim> shippingClaims) {
+        this.shippingClaims = shippingClaims;
+    }
+
+    public User1 getUser1() {
+        return user1;
+    }
+
+    public ClaimComment user1(User1 user1) {
+        this.user1 = user1;
+        return this;
+    }
+
+    public void setUser1(User1 user1) {
+        this.user1 = user1;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

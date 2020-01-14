@@ -16,7 +16,8 @@
       "detail": {
         "title": "Claim Status"
       },
-      "name": "Name"
+      "name": "Name",
+      "shippingClaim": "Shipping Claim"
     }
   }
 }

@@ -1,7 +1,14 @@
 {
     "name": "ShippingOrder",
     "fields": [],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "shippingOrder",
+            "relationshipName": "shippingClaim"
+        }
+    ],
     "changelogDate": "20200113113809",
     "entityTableName": "shipping_order",
     "dto": "mapstruct",

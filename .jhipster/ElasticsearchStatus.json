@@ -1,7 +1,14 @@
 {
     "name": "ElasticsearchStatus",
     "fields": [],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "elasticShippingClaim",
+            "otherEntityRelationshipName": "elasticStatus",
+            "relationshipName": "elasticShippingClaim"
+        }
+    ],
     "changelogDate": "20200113113822",
     "entityTableName": "elasticsearch_status",
     "dto": "mapstruct",

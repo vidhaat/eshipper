@@ -20,7 +20,8 @@
       "description": "Description",
       "date": "Date",
       "commentBy": "Comment By",
-      "user": "User"
+      "shippingClaim": "Shipping Claim",
+      "user1": "User 1"
     }
   }
 }

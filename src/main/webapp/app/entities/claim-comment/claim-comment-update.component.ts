@@ -10,8 +10,8 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IClaimComment, ClaimComment } from 'app/shared/model/claim-comment.model';
 import { ClaimCommentService } from './claim-comment.service';
-import { IUser } from 'app/core/user/user.model';
-import { UserService } from 'app/core/user/user.service';
+import { IUser1 } from 'app/shared/model/user-1.model';
+import { User1Service } from 'app/entities/user-1/user-1.service';
 
 @Component({
   selector: 'jhi-claim-comment-update',
@@ -20,7 +20,7 @@ import { UserService } from 'app/core/user/user.service';
 export class ClaimCommentUpdateComponent implements OnInit {
   isSaving = false;
 
-  users: IUser[] = [];
+  user1s: IUser1[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -28,12 +28,12 @@ export class ClaimCommentUpdateComponent implements OnInit {
     description: [],
     date: [],
     commentBy: [],
-    userId: []
+    user1Id: []
   });
 
   constructor(
     protected claimCommentService: ClaimCommentService,
-    protected userService: UserService,
+    protected user1Service: User1Service,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -42,14 +42,14 @@ export class ClaimCommentUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ claimComment }) => {
       this.updateForm(claimComment);
 
-      this.userService
+      this.user1Service
         .query()
         .pipe(
-          map((res: HttpResponse<IUser[]>) => {
+          map((res: HttpResponse<IUser1[]>) => {
             return res.body ? res.body : [];
           })
         )
-        .subscribe((resBody: IUser[]) => (this.users = resBody));
+        .subscribe((resBody: IUser1[]) => (this.user1s = resBody));
     });
   }
 
@@ -60,7 +60,7 @@ export class ClaimCommentUpdateComponent implements OnInit {
       description: claimComment.description,
       date: claimComment.date != null ? claimComment.date.format(DATE_TIME_FORMAT) : null,
       commentBy: claimComment.commentBy,
-      userId: claimComment.userId
+      user1Id: claimComment.user1Id
     });
   }
 
@@ -86,7 +86,7 @@ export class ClaimCommentUpdateComponent implements OnInit {
       description: this.editForm.get(['description'])!.value,
       date: this.editForm.get(['date'])!.value != null ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
       commentBy: this.editForm.get(['commentBy'])!.value,
-      userId: this.editForm.get(['userId'])!.value
+      user1Id: this.editForm.get(['user1Id'])!.value
     };
   }
 
@@ -106,7 +106,7 @@ export class ClaimCommentUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IUser): any {
+  trackById(index: number, item: IUser1): any {
     return item.id;
   }
 }

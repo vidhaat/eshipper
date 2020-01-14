@@ -1,0 +1,22 @@
+{
+    "name": "User1",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimComment",
+            "otherEntityRelationshipName": "user1",
+            "relationshipName": "claimComment"
+        }
+    ],
+    "changelogDate": "20200114070011",
+    "entityTableName": "user_1",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

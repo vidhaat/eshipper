@@ -15,7 +15,8 @@
       },
       "detail": {
         "title": "Elasticsearch Status"
-      }
+      },
+      "elasticShippingClaim": "Elastic Shipping Claim"
     }
   }
 }

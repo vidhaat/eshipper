@@ -5,6 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A ElasticsearchStatus.
@@ -20,6 +22,10 @@ public class ElasticsearchStatus implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToMany(mappedBy = "elasticStatus")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ElasticShippingClaim> elasticShippingClaims = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -27,6 +33,31 @@ public class ElasticsearchStatus implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Set<ElasticShippingClaim> getElasticShippingClaims() {
+        return elasticShippingClaims;
+    }
+
+    public ElasticsearchStatus elasticShippingClaims(Set<ElasticShippingClaim> elasticShippingClaims) {
+        this.elasticShippingClaims = elasticShippingClaims;
+        return this;
+    }
+
+    public ElasticsearchStatus addElasticShippingClaim(ElasticShippingClaim elasticShippingClaim) {
+        this.elasticShippingClaims.add(elasticShippingClaim);
+        elasticShippingClaim.setElasticStatus(this);
+        return this;
+    }
+
+    public ElasticsearchStatus removeElasticShippingClaim(ElasticShippingClaim elasticShippingClaim) {
+        this.elasticShippingClaims.remove(elasticShippingClaim);
+        elasticShippingClaim.setElasticStatus(null);
+        return this;
+    }
+
+    public void setElasticShippingClaims(Set<ElasticShippingClaim> elasticShippingClaims) {
+        this.elasticShippingClaims = elasticShippingClaims;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

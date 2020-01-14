@@ -6,7 +6,14 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimCarrierRefund",
+            "otherEntityRelationshipName": "refundStatus",
+            "relationshipName": "claimCarrierRefund"
+        }
+    ],
     "changelogDate": "20200113113819",
     "entityTableName": "claim_carrier_refund_status",
     "dto": "mapstruct",

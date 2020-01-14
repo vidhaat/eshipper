@@ -21,9 +21,11 @@
                 <dd>
                     <span>{{claimComment.commentBy}}</span>
                 </dd>
-                <dt><span jhiTranslate="eshipperApp.claimComment.user">User</span></dt>
+                <dt><span jhiTranslate="eshipperApp.claimComment.user1">User 1</span></dt>
                 <dd>
-                    {{claimComment.userId}}
+                    <div *ngIf="claimComment.user1Id">
+                        <a [routerLink]="['/user-1', claimComment.user1Id, 'view']">{{claimComment.user1Id}}</a>
+                    </div>
                 </dd>
             </dl>
 

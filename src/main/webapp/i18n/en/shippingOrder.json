@@ -15,7 +15,8 @@
       },
       "detail": {
         "title": "Shipping Order"
-      }
+      },
+      "shippingClaim": "Shipping Claim"
     }
   }
 }

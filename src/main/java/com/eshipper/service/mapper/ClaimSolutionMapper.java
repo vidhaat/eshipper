@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface ClaimSolutionMapper extends EntityMapper<ClaimSolutionDTO, ClaimSolution> {
 
 
+    @Mapping(target = "shippingClaims", ignore = true)
+    @Mapping(target = "removeShippingClaim", ignore = true)
+    ClaimSolution toEntity(ClaimSolutionDTO claimSolutionDTO);
 
     default ClaimSolution fromId(Long id) {
         if (id == null) {

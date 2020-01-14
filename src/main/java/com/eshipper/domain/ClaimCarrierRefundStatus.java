@@ -5,6 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A ClaimCarrierRefundStatus.
@@ -22,6 +24,10 @@ public class ClaimCarrierRefundStatus implements Serializable {
 
     @Column(name = "status")
     private String status;
+
+    @OneToMany(mappedBy = "refundStatus")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimCarrierRefund> claimCarrierRefunds = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +49,31 @@ public class ClaimCarrierRefundStatus implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Set<ClaimCarrierRefund> getClaimCarrierRefunds() {
+        return claimCarrierRefunds;
+    }
+
+    public ClaimCarrierRefundStatus claimCarrierRefunds(Set<ClaimCarrierRefund> claimCarrierRefunds) {
+        this.claimCarrierRefunds = claimCarrierRefunds;
+        return this;
+    }
+
+    public ClaimCarrierRefundStatus addClaimCarrierRefund(ClaimCarrierRefund claimCarrierRefund) {
+        this.claimCarrierRefunds.add(claimCarrierRefund);
+        claimCarrierRefund.setRefundStatus(this);
+        return this;
+    }
+
+    public ClaimCarrierRefundStatus removeClaimCarrierRefund(ClaimCarrierRefund claimCarrierRefund) {
+        this.claimCarrierRefunds.remove(claimCarrierRefund);
+        claimCarrierRefund.setRefundStatus(null);
+        return this;
+    }
+
+    public void setClaimCarrierRefunds(Set<ClaimCarrierRefund> claimCarrierRefunds) {
+        this.claimCarrierRefunds = claimCarrierRefunds;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

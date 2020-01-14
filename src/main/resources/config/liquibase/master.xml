@@ -39,6 +39,7 @@
     <include file="config/liquibase/changelog/20200113113820_added_entity_ClaimEshipperRefund.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200113113821_added_entity_ElasticShippingClaim.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200113113822_added_entity_ElasticsearchStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200114070011_added_entity_User1.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200108090705_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200108090706_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>

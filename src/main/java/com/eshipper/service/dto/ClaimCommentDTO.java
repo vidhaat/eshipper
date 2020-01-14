@@ -19,7 +19,7 @@ public class ClaimCommentDTO implements Serializable {
     private String commentBy;
 
 
-    private Long userId;
+    private Long user1Id;
 
     public Long getId() {
         return id;
@@ -61,12 +61,12 @@ public class ClaimCommentDTO implements Serializable {
         this.commentBy = commentBy;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getUser1Id() {
+        return user1Id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser1Id(Long user1Id) {
+        this.user1Id = user1Id;
     }
 
     @Override
@@ -98,7 +98,7 @@ public class ClaimCommentDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", date='" + getDate() + "'" +
             ", commentBy='" + getCommentBy() + "'" +
-            ", userId=" + getUserId() +
+            ", user1Id=" + getUser1Id() +
             "}";
     }
 }

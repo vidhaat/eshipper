@@ -27,6 +27,8 @@
       "missingDocuments": "Missing Documents",
       "claimCarrierRefund": "Claim Carrier Refund",
       "claimEshipperRefund": "Claim Eshipper Refund",
+      "claimAttachment": "Claim Attachment",
+      "claimMissingDocument": "Claim Missing Document",
       "shippingOrder": "Shipping Order",
       "ticketReason": "Ticket Reason",
       "claimStatus": "Claim Status",

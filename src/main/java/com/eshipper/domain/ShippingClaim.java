@@ -7,6 +7,8 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A ShippingClaim.
@@ -56,6 +58,14 @@ public class ShippingClaim implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private ClaimEshipperRefund claimEshipperRefund;
+
+    @OneToMany(mappedBy = "shippingClaim")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimAttachment> claimAttachments = new HashSet<>();
+
+    @OneToMany(mappedBy = "shippingClaim")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimMissingDocument> claimMissingDocuments = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("shippingClaims")
@@ -235,6 +245,56 @@ public class ShippingClaim implements Serializable {
 
     public void setClaimEshipperRefund(ClaimEshipperRefund claimEshipperRefund) {
         this.claimEshipperRefund = claimEshipperRefund;
+    }
+
+    public Set<ClaimAttachment> getClaimAttachments() {
+        return claimAttachments;
+    }
+
+    public ShippingClaim claimAttachments(Set<ClaimAttachment> claimAttachments) {
+        this.claimAttachments = claimAttachments;
+        return this;
+    }
+
+    public ShippingClaim addClaimAttachment(ClaimAttachment claimAttachment) {
+        this.claimAttachments.add(claimAttachment);
+        claimAttachment.setShippingClaim(this);
+        return this;
+    }
+
+    public ShippingClaim removeClaimAttachment(ClaimAttachment claimAttachment) {
+        this.claimAttachments.remove(claimAttachment);
+        claimAttachment.setShippingClaim(null);
+        return this;
+    }
+
+    public void setClaimAttachments(Set<ClaimAttachment> claimAttachments) {
+        this.claimAttachments = claimAttachments;
+    }
+
+    public Set<ClaimMissingDocument> getClaimMissingDocuments() {
+        return claimMissingDocuments;
+    }
+
+    public ShippingClaim claimMissingDocuments(Set<ClaimMissingDocument> claimMissingDocuments) {
+        this.claimMissingDocuments = claimMissingDocuments;
+        return this;
+    }
+
+    public ShippingClaim addClaimMissingDocument(ClaimMissingDocument claimMissingDocument) {
+        this.claimMissingDocuments.add(claimMissingDocument);
+        claimMissingDocument.setShippingClaim(this);
+        return this;
+    }
+
+    public ShippingClaim removeClaimMissingDocument(ClaimMissingDocument claimMissingDocument) {
+        this.claimMissingDocuments.remove(claimMissingDocument);
+        claimMissingDocument.setShippingClaim(null);
+        return this;
+    }
+
+    public void setClaimMissingDocuments(Set<ClaimMissingDocument> claimMissingDocuments) {
+        this.claimMissingDocuments = claimMissingDocuments;
     }
 
     public ShippingOrder getShippingOrder() {

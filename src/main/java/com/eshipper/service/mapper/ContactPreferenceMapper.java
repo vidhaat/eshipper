@@ -15,6 +15,8 @@ public interface ContactPreferenceMapper extends EntityMapper<ContactPreferenceD
     ContactPreferenceDTO toDto(ContactPreference contactPreference);
 
     @Mapping(source = "userId", target = "user")
+    @Mapping(target = "shippingClaims", ignore = true)
+    @Mapping(target = "removeShippingClaim", ignore = true)
     ContactPreference toEntity(ContactPreferenceDTO contactPreferenceDTO);
 
     default ContactPreference fromId(Long id) {

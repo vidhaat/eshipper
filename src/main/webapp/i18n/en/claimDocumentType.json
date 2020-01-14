@@ -16,7 +16,8 @@
       "detail": {
         "title": "Claim Document Type"
       },
-      "name": "Name"
+      "name": "Name",
+      "claimMissingDocument": "Claim Missing Document"
     }
   }
 }

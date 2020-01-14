@@ -15,7 +15,8 @@
       },
       "detail": {
         "title": "Ticket Reason"
-      }
+      },
+      "shippingClaim": "Shipping Claim"
     }
   }
 }

@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface ElasticsearchStatusMapper extends EntityMapper<ElasticsearchStatusDTO, ElasticsearchStatus> {
 
 
+    @Mapping(target = "elasticShippingClaims", ignore = true)
+    @Mapping(target = "removeElasticShippingClaim", ignore = true)
+    ElasticsearchStatus toEntity(ElasticsearchStatusDTO elasticsearchStatusDTO);
 
     default ElasticsearchStatus fromId(Long id) {
         if (id == null) {

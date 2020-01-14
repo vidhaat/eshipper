@@ -1,4 +1,6 @@
 import { Moment } from 'moment';
+import { IClaimAttachment } from 'app/shared/model/claim-attachment.model';
+import { IClaimMissingDocument } from 'app/shared/model/claim-missing-document.model';
 
 export interface IShippingClaim {
   id?: number;
@@ -13,6 +15,8 @@ export interface IShippingClaim {
   missingDocuments?: boolean;
   claimCarrierRefundId?: number;
   claimEshipperRefundId?: number;
+  claimAttachments?: IClaimAttachment[];
+  claimMissingDocuments?: IClaimMissingDocument[];
   shippingOrderId?: number;
   ticketReasonId?: number;
   claimStatusId?: number;
@@ -36,6 +40,8 @@ export class ShippingClaim implements IShippingClaim {
     public missingDocuments?: boolean,
     public claimCarrierRefundId?: number,
     public claimEshipperRefundId?: number,
+    public claimAttachments?: IClaimAttachment[],
+    public claimMissingDocuments?: IClaimMissingDocument[],
     public shippingOrderId?: number,
     public ticketReasonId?: number,
     public claimStatusId?: number,
