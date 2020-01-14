@@ -64,7 +64,7 @@ entity ClaimCarrierRefund{
  date ZonedDateTime
 }
 
-entity User{
+entity User1{
 }
 
 entity ClaimCarrierRefundStatus{
@@ -92,23 +92,24 @@ relationship OneToOne{
 
 }
 
-relationship ManyToOne{
- ClaimMissingDocument{claimDocumentType} to ClaimDocumentType,
- ClaimAttachment{shippingClaim} to ShippingClaim,
- ShippingClaim{shippingOrder} to ShippingOrder,
- ShippingClaim{ticketReason} to TicketReason,
- ShippingClaim{claimStatus} to ClaimStatus,
- ClaimMissingDocument{shippingClaim} to ShippingClaim,
- ShippingClaim{claimSolution} to ClaimSolution,
- ShippingClaim{claimAssignee} to ClaimAssignee,
- ShippingClaim{claimComment} to ClaimComment,
- ClaimCarrierRefund{currency} to Currency,
- ClaimCarrierRefund{refundStatus} to ClaimCarrierRefundStatus,
- ClaimEshipperRefund{currency} to Currency,
- ElasticShippingClaim{elasticStatus} to ElasticsearchStatus,
- ClaimComment{user} to User,
- ShippingClaim{contactPreference} to ContactPreference
-}
+ relationship OneToMany{
+ ClaimDocumentType to ClaimMissingDocument{claimDocumentType},
+ ShippingClaim to ClaimAttachment{shippingClaim},
+ ShippingOrder to ShippingClaim{shippingOrder},
+ TicketReason to ShippingClaim{ticketReason},
+ ClaimStatus to ShippingClaim{claimStatus},
+ ShippingClaim to ClaimMissingDocument{shippingClaim},
+ ClaimSolution to  ShippingClaim{claimSolution},
+ ClaimAssignee to ShippingClaim{claimAssignee},
+ ClaimComment to ShippingClaim{claimComment},
+ Currency to ClaimCarrierRefund{currency},
+ ClaimCarrierRefundStatus to ClaimCarrierRefund{refundStatus},
+ Currency to ClaimEshipperRefund{currency},
+ ElasticsearchStatus to ElasticShippingClaim{elasticStatus},
+ User1 to ClaimComment{user1},
+ ContactPreference to ShippingClaim{contactPreference}
+ }
+
 
 service all with serviceImpl
 
