@@ -16,7 +16,8 @@
       "detail": {
         "title": "Claim Assignee"
       },
-      "name": "Name"
+      "name": "Name",
+      "shippingClaim": "Shipping Claim"
     }
   }
 }

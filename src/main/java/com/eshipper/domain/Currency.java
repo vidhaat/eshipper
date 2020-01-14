@@ -5,6 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A Currency.
@@ -22,6 +24,14 @@ public class Currency implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "currency")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimCarrierRefund> claimCarrierRefunds = new HashSet<>();
+
+    @OneToMany(mappedBy = "currency")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimEshipperRefund> claimEshipperRefunds = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +53,56 @@ public class Currency implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<ClaimCarrierRefund> getClaimCarrierRefunds() {
+        return claimCarrierRefunds;
+    }
+
+    public Currency claimCarrierRefunds(Set<ClaimCarrierRefund> claimCarrierRefunds) {
+        this.claimCarrierRefunds = claimCarrierRefunds;
+        return this;
+    }
+
+    public Currency addClaimCarrierRefund(ClaimCarrierRefund claimCarrierRefund) {
+        this.claimCarrierRefunds.add(claimCarrierRefund);
+        claimCarrierRefund.setCurrency(this);
+        return this;
+    }
+
+    public Currency removeClaimCarrierRefund(ClaimCarrierRefund claimCarrierRefund) {
+        this.claimCarrierRefunds.remove(claimCarrierRefund);
+        claimCarrierRefund.setCurrency(null);
+        return this;
+    }
+
+    public void setClaimCarrierRefunds(Set<ClaimCarrierRefund> claimCarrierRefunds) {
+        this.claimCarrierRefunds = claimCarrierRefunds;
+    }
+
+    public Set<ClaimEshipperRefund> getClaimEshipperRefunds() {
+        return claimEshipperRefunds;
+    }
+
+    public Currency claimEshipperRefunds(Set<ClaimEshipperRefund> claimEshipperRefunds) {
+        this.claimEshipperRefunds = claimEshipperRefunds;
+        return this;
+    }
+
+    public Currency addClaimEshipperRefund(ClaimEshipperRefund claimEshipperRefund) {
+        this.claimEshipperRefunds.add(claimEshipperRefund);
+        claimEshipperRefund.setCurrency(this);
+        return this;
+    }
+
+    public Currency removeClaimEshipperRefund(ClaimEshipperRefund claimEshipperRefund) {
+        this.claimEshipperRefunds.remove(claimEshipperRefund);
+        claimEshipperRefund.setCurrency(null);
+        return this;
+    }
+
+    public void setClaimEshipperRefunds(Set<ClaimEshipperRefund> claimEshipperRefunds) {
+        this.claimEshipperRefunds = claimEshipperRefunds;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -12,6 +12,11 @@ import org.mapstruct.*;
 public interface CurrencyMapper extends EntityMapper<CurrencyDTO, Currency> {
 
 
+    @Mapping(target = "claimCarrierRefunds", ignore = true)
+    @Mapping(target = "removeClaimCarrierRefund", ignore = true)
+    @Mapping(target = "claimEshipperRefunds", ignore = true)
+    @Mapping(target = "removeClaimEshipperRefund", ignore = true)
+    Currency toEntity(CurrencyDTO currencyDTO);
 
     default Currency fromId(Long id) {
         if (id == null) {

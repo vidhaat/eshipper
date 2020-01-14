@@ -6,7 +6,14 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "claimStatus",
+            "relationshipName": "shippingClaim"
+        }
+    ],
     "changelogDate": "20200113113806",
     "entityTableName": "claim_status",
     "dto": "mapstruct",

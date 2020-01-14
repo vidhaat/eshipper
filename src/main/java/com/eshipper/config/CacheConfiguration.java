@@ -71,6 +71,22 @@ public class CacheConfiguration {
             createCache(cm, com.eshipper.domain.ClaimEshipperRefund.class.getName());
             createCache(cm, com.eshipper.domain.ElasticShippingClaim.class.getName());
             createCache(cm, com.eshipper.domain.ElasticsearchStatus.class.getName());
+            createCache(cm, com.eshipper.domain.ShippingClaim.class.getName() + ".claimAttachments");
+            createCache(cm, com.eshipper.domain.ShippingClaim.class.getName() + ".claimMissingDocuments");
+            createCache(cm, com.eshipper.domain.ClaimStatus.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.ContactPreference.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.TicketReason.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.ShippingOrder.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.ClaimDocumentType.class.getName() + ".claimMissingDocuments");
+            createCache(cm, com.eshipper.domain.ClaimSolution.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.ClaimAssignee.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.ClaimComment.class.getName() + ".shippingClaims");
+            createCache(cm, com.eshipper.domain.Currency.class.getName() + ".claimCarrierRefunds");
+            createCache(cm, com.eshipper.domain.Currency.class.getName() + ".claimEshipperRefunds");
+            createCache(cm, com.eshipper.domain.User1.class.getName());
+            createCache(cm, com.eshipper.domain.User1.class.getName() + ".claimComments");
+            createCache(cm, com.eshipper.domain.ClaimCarrierRefundStatus.class.getName() + ".claimCarrierRefunds");
+            createCache(cm, com.eshipper.domain.ElasticsearchStatus.class.getName() + ".elasticShippingClaims");
             // jhipster-needle-ehcache-add-entry
         };
     }

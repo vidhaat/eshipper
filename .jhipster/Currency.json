@@ -6,7 +6,20 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimCarrierRefund",
+            "otherEntityRelationshipName": "currency",
+            "relationshipName": "claimCarrierRefund"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimEshipperRefund",
+            "otherEntityRelationshipName": "currency",
+            "relationshipName": "claimEshipperRefund"
+        }
+    ],
     "changelogDate": "20200113113816",
     "entityTableName": "currency",
     "dto": "mapstruct",

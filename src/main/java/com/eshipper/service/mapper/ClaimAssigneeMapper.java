@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface ClaimAssigneeMapper extends EntityMapper<ClaimAssigneeDTO, ClaimAssignee> {
 
 
+    @Mapping(target = "shippingClaims", ignore = true)
+    @Mapping(target = "removeShippingClaim", ignore = true)
+    ClaimAssignee toEntity(ClaimAssigneeDTO claimAssigneeDTO);
 
     default ClaimAssignee fromId(Long id) {
         if (id == null) {

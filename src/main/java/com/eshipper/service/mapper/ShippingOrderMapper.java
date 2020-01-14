@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface ShippingOrderMapper extends EntityMapper<ShippingOrderDTO, ShippingOrder> {
 
 
+    @Mapping(target = "shippingClaims", ignore = true)
+    @Mapping(target = "removeShippingClaim", ignore = true)
+    ShippingOrder toEntity(ShippingOrderDTO shippingOrderDTO);
 
     default ShippingOrder fromId(Long id) {
         if (id == null) {

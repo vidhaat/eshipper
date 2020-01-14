@@ -5,6 +5,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A ClaimDocumentType.
@@ -22,6 +24,10 @@ public class ClaimDocumentType implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "claimDocumentType")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimMissingDocument> claimMissingDocuments = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,6 +49,31 @@ public class ClaimDocumentType implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<ClaimMissingDocument> getClaimMissingDocuments() {
+        return claimMissingDocuments;
+    }
+
+    public ClaimDocumentType claimMissingDocuments(Set<ClaimMissingDocument> claimMissingDocuments) {
+        this.claimMissingDocuments = claimMissingDocuments;
+        return this;
+    }
+
+    public ClaimDocumentType addClaimMissingDocument(ClaimMissingDocument claimMissingDocument) {
+        this.claimMissingDocuments.add(claimMissingDocument);
+        claimMissingDocument.setClaimDocumentType(this);
+        return this;
+    }
+
+    public ClaimDocumentType removeClaimMissingDocument(ClaimMissingDocument claimMissingDocument) {
+        this.claimMissingDocuments.remove(claimMissingDocument);
+        claimMissingDocument.setClaimDocumentType(null);
+        return this;
+    }
+
+    public void setClaimMissingDocuments(Set<ClaimMissingDocument> claimMissingDocuments) {
+        this.claimMissingDocuments = claimMissingDocuments;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

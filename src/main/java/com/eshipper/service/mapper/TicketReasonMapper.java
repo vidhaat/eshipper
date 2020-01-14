@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface TicketReasonMapper extends EntityMapper<TicketReasonDTO, TicketReason> {
 
 
+    @Mapping(target = "shippingClaims", ignore = true)
+    @Mapping(target = "removeShippingClaim", ignore = true)
+    TicketReason toEntity(TicketReasonDTO ticketReasonDTO);
 
     default TicketReason fromId(Long id) {
         if (id == null) {

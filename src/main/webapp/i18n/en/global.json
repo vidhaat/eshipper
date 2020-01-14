@@ -32,6 +32,7 @@
         "claimEshipperRefund": "Claim Eshipper Refund",
         "elasticShippingClaim": "Elastic Shipping Claim",
         "elasticsearchStatus": "Elasticsearch Status",
+        "user1": "User 1",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

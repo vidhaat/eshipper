@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface ClaimCarrierRefundStatusMapper extends EntityMapper<ClaimCarrierRefundStatusDTO, ClaimCarrierRefundStatus> {
 
 
+    @Mapping(target = "claimCarrierRefunds", ignore = true)
+    @Mapping(target = "removeClaimCarrierRefund", ignore = true)
+    ClaimCarrierRefundStatus toEntity(ClaimCarrierRefundStatusDTO claimCarrierRefundStatusDTO);
 
     default ClaimCarrierRefundStatus fromId(Long id) {
         if (id == null) {

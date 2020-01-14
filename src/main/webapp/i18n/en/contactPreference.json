@@ -16,7 +16,8 @@
       "detail": {
         "title": "Contact Preference"
       },
-      "user": "User"
+      "user": "User",
+      "shippingClaim": "Shipping Claim"
     }
   }
 }

@@ -104,6 +104,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'elasticsearch-status',
         loadChildren: () => import('./elasticsearch-status/elasticsearch-status.module').then(m => m.EshipperElasticsearchStatusModule)
+      },
+      {
+        path: 'user-1',
+        loadChildren: () => import('./user-1/user-1.module').then(m => m.EshipperUser1Module)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

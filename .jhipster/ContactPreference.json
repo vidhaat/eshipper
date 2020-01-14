@@ -9,6 +9,12 @@
             "relationshipName": "user",
             "otherEntityField": "id",
             "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingClaim",
+            "otherEntityRelationshipName": "contactPreference",
+            "relationshipName": "shippingClaim"
         }
     ],
     "changelogDate": "20200113113807",

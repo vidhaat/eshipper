@@ -12,6 +12,9 @@ import org.mapstruct.*;
 public interface ClaimDocumentTypeMapper extends EntityMapper<ClaimDocumentTypeDTO, ClaimDocumentType> {
 
 
+    @Mapping(target = "claimMissingDocuments", ignore = true)
+    @Mapping(target = "removeClaimMissingDocument", ignore = true)
+    ClaimDocumentType toEntity(ClaimDocumentTypeDTO claimDocumentTypeDTO);
 
     default ClaimDocumentType fromId(Long id) {
         if (id == null) {

@@ -6,7 +6,14 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "claimMissingDocument",
+            "otherEntityRelationshipName": "claimDocumentType",
+            "relationshipName": "claimMissingDocument"
+        }
+    ],
     "changelogDate": "20200113113812",
     "entityTableName": "claim_document_type",
     "dto": "mapstruct",

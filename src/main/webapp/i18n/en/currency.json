@@ -16,7 +16,9 @@
       "detail": {
         "title": "Currency"
       },
-      "name": "Name"
+      "name": "Name",
+      "claimCarrierRefund": "Claim Carrier Refund",
+      "claimEshipperRefund": "Claim Eshipper Refund"
     }
   }
 }

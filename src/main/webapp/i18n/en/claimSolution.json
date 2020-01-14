@@ -16,7 +16,8 @@
       "detail": {
         "title": "Claim Solution"
       },
-      "name": "Name"
+      "name": "Name",
+      "shippingClaim": "Shipping Claim"
     }
   }
 }
