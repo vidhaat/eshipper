@@ -8,6 +8,12 @@
     -->
     <changeSet id="20200113113815-2" author="jhipster">
         
+        <addForeignKeyConstraint baseColumnNames="shipping_claim_id"
+                                 baseTableName="claim_comment"
+                                 constraintName="fk_claim_comment_shipping_claim_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shipping_claim"/>
+
         <addForeignKeyConstraint baseColumnNames="user1_id"
                                  baseTableName="claim_comment"
                                  constraintName="fk_claim_comment_user1_id"

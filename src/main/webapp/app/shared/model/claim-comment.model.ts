@@ -1,5 +1,4 @@
 import { Moment } from 'moment';
-import { IShippingClaim } from 'app/shared/model/shipping-claim.model';
 
 export interface IClaimComment {
   id?: number;
@@ -7,7 +6,7 @@ export interface IClaimComment {
   description?: string;
   date?: Moment;
   commentBy?: string;
-  shippingClaims?: IShippingClaim[];
+  shippingClaimId?: number;
   user1Id?: number;
 }
 
@@ -18,7 +17,7 @@ export class ClaimComment implements IClaimComment {
     public description?: string,
     public date?: Moment,
     public commentBy?: string,
-    public shippingClaims?: IShippingClaim[],
+    public shippingClaimId?: number,
     public user1Id?: number
   ) {}
 }

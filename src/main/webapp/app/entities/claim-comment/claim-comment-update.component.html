@@ -32,6 +32,13 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eshipperApp.claimComment.shippingClaim" for="field_shippingClaim">Shipping Claim</label>
+                    <select class="form-control" id="field_shippingClaim" name="shippingClaim" formControlName="shippingClaimId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shippingClaimOption.id" *ngFor="let shippingClaimOption of shippingclaims; trackBy: trackById">{{shippingClaimOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eshipperApp.claimComment.user1" for="field_user1">User 1</label>
                     <select class="form-control" id="field_user1" name="user1" formControlName="user1Id">
                         <option [ngValue]="null"></option>

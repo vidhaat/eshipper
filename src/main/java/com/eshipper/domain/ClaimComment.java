@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A ClaimComment.
@@ -36,9 +34,9 @@ public class ClaimComment implements Serializable {
     @Column(name = "comment_by")
     private String commentBy;
 
-    @OneToMany(mappedBy = "claimComment")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<ShippingClaim> shippingClaims = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("claimComments")
+    private ShippingClaim shippingClaim;
 
     @ManyToOne
     @JsonIgnoreProperties("claimComments")
@@ -105,29 +103,17 @@ public class ClaimComment implements Serializable {
         this.commentBy = commentBy;
     }
 
-    public Set<ShippingClaim> getShippingClaims() {
-        return shippingClaims;
+    public ShippingClaim getShippingClaim() {
+        return shippingClaim;
     }
 
-    public ClaimComment shippingClaims(Set<ShippingClaim> shippingClaims) {
-        this.shippingClaims = shippingClaims;
+    public ClaimComment shippingClaim(ShippingClaim shippingClaim) {
+        this.shippingClaim = shippingClaim;
         return this;
     }
 
-    public ClaimComment addShippingClaim(ShippingClaim shippingClaim) {
-        this.shippingClaims.add(shippingClaim);
-        shippingClaim.setClaimComment(this);
-        return this;
-    }
-
-    public ClaimComment removeShippingClaim(ShippingClaim shippingClaim) {
-        this.shippingClaims.remove(shippingClaim);
-        shippingClaim.setClaimComment(null);
-        return this;
-    }
-
-    public void setShippingClaims(Set<ShippingClaim> shippingClaims) {
-        this.shippingClaims = shippingClaims;
+    public void setShippingClaim(ShippingClaim shippingClaim) {
+        this.shippingClaim = shippingClaim;
     }
 
     public User1 getUser1() {

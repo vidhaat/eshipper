@@ -24,8 +24,6 @@ import { IClaimSolution } from 'app/shared/model/claim-solution.model';
 import { ClaimSolutionService } from 'app/entities/claim-solution/claim-solution.service';
 import { IClaimAssignee } from 'app/shared/model/claim-assignee.model';
 import { ClaimAssigneeService } from 'app/entities/claim-assignee/claim-assignee.service';
-import { IClaimComment } from 'app/shared/model/claim-comment.model';
-import { ClaimCommentService } from 'app/entities/claim-comment/claim-comment.service';
 import { IContactPreference } from 'app/shared/model/contact-preference.model';
 import { ContactPreferenceService } from 'app/entities/contact-preference/contact-preference.service';
 
@@ -37,7 +35,6 @@ type SelectableEntity =
   | IClaimStatus
   | IClaimSolution
   | IClaimAssignee
-  | IClaimComment
   | IContactPreference;
 
 @Component({
@@ -61,8 +58,6 @@ export class ShippingClaimUpdateComponent implements OnInit {
 
   claimassignees: IClaimAssignee[] = [];
 
-  claimcomments: IClaimComment[] = [];
-
   contactpreferences: IContactPreference[] = [];
 
   editForm = this.fb.group({
@@ -83,7 +78,6 @@ export class ShippingClaimUpdateComponent implements OnInit {
     claimStatusId: [],
     claimSolutionId: [],
     claimAssigneeId: [],
-    claimCommentId: [],
     contactPreferenceId: []
   });
 
@@ -96,7 +90,6 @@ export class ShippingClaimUpdateComponent implements OnInit {
     protected claimStatusService: ClaimStatusService,
     protected claimSolutionService: ClaimSolutionService,
     protected claimAssigneeService: ClaimAssigneeService,
-    protected claimCommentService: ClaimCommentService,
     protected contactPreferenceService: ContactPreferenceService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -199,15 +192,6 @@ export class ShippingClaimUpdateComponent implements OnInit {
         )
         .subscribe((resBody: IClaimAssignee[]) => (this.claimassignees = resBody));
 
-      this.claimCommentService
-        .query()
-        .pipe(
-          map((res: HttpResponse<IClaimComment[]>) => {
-            return res.body ? res.body : [];
-          })
-        )
-        .subscribe((resBody: IClaimComment[]) => (this.claimcomments = resBody));
-
       this.contactPreferenceService
         .query()
         .pipe(
@@ -238,7 +222,6 @@ export class ShippingClaimUpdateComponent implements OnInit {
       claimStatusId: shippingClaim.claimStatusId,
       claimSolutionId: shippingClaim.claimSolutionId,
       claimAssigneeId: shippingClaim.claimAssigneeId,
-      claimCommentId: shippingClaim.claimCommentId,
       contactPreferenceId: shippingClaim.contactPreferenceId
     });
   }
@@ -283,7 +266,6 @@ export class ShippingClaimUpdateComponent implements OnInit {
       claimStatusId: this.editForm.get(['claimStatusId'])!.value,
       claimSolutionId: this.editForm.get(['claimSolutionId'])!.value,
       claimAssigneeId: this.editForm.get(['claimAssigneeId'])!.value,
-      claimCommentId: this.editForm.get(['claimCommentId'])!.value,
       contactPreferenceId: this.editForm.get(['contactPreferenceId'])!.value
     };
   }

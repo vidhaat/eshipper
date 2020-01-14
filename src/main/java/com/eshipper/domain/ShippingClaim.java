@@ -67,6 +67,10 @@ public class ShippingClaim implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ClaimMissingDocument> claimMissingDocuments = new HashSet<>();
 
+    @OneToMany(mappedBy = "shippingClaim")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ClaimComment> claimComments = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties("shippingClaims")
     private ShippingOrder shippingOrder;
@@ -86,10 +90,6 @@ public class ShippingClaim implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("shippingClaims")
     private ClaimAssignee claimAssignee;
-
-    @ManyToOne
-    @JsonIgnoreProperties("shippingClaims")
-    private ClaimComment claimComment;
 
     @ManyToOne
     @JsonIgnoreProperties("shippingClaims")
@@ -297,6 +297,31 @@ public class ShippingClaim implements Serializable {
         this.claimMissingDocuments = claimMissingDocuments;
     }
 
+    public Set<ClaimComment> getClaimComments() {
+        return claimComments;
+    }
+
+    public ShippingClaim claimComments(Set<ClaimComment> claimComments) {
+        this.claimComments = claimComments;
+        return this;
+    }
+
+    public ShippingClaim addClaimComment(ClaimComment claimComment) {
+        this.claimComments.add(claimComment);
+        claimComment.setShippingClaim(this);
+        return this;
+    }
+
+    public ShippingClaim removeClaimComment(ClaimComment claimComment) {
+        this.claimComments.remove(claimComment);
+        claimComment.setShippingClaim(null);
+        return this;
+    }
+
+    public void setClaimComments(Set<ClaimComment> claimComments) {
+        this.claimComments = claimComments;
+    }
+
     public ShippingOrder getShippingOrder() {
         return shippingOrder;
     }
@@ -360,19 +385,6 @@ public class ShippingClaim implements Serializable {
 
     public void setClaimAssignee(ClaimAssignee claimAssignee) {
         this.claimAssignee = claimAssignee;
-    }
-
-    public ClaimComment getClaimComment() {
-        return claimComment;
-    }
-
-    public ShippingClaim claimComment(ClaimComment claimComment) {
-        this.claimComment = claimComment;
-        return this;
-    }
-
-    public void setClaimComment(ClaimComment claimComment) {
-        this.claimComment = claimComment;
     }
 
     public ContactPreference getContactPreference() {

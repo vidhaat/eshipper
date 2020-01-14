@@ -23,6 +23,7 @@
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.description">Description</span></th>
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.date">Date</span></th>
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.commentBy">Comment By</span></th>
+            <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.shippingClaim">Shipping Claim</span></th>
             <th scope="col" ><span jhiTranslate="eshipperApp.claimComment.user1">User 1</span></th>
             <th scope="col"></th>
             </tr>
@@ -34,6 +35,11 @@
                 <td>{{claimComment.description}}</td>
                 <td>{{claimComment.date | date:'medium'}}</td>
                 <td>{{claimComment.commentBy}}</td>
+                <td>
+                    <div *ngIf="claimComment.shippingClaimId">
+                        <a [routerLink]="['/shipping-claim', claimComment.shippingClaimId , 'view' ]" >{{claimComment.shippingClaimId}}</a>
+                    </div>
+                </td>
                 <td>
                     <div *ngIf="claimComment.user1Id">
                         <a [routerLink]="['/user-1', claimComment.user1Id , 'view' ]" >{{claimComment.user1Id}}</a>
